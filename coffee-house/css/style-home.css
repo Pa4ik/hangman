@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+  text-decoration: none;
+  color: #000;
+  }
+
+  body{
+    margin: auto;
+    max-width: 1440px;;
+  }
+
+  /* footer */
+
+  .header{
+  max-width: 1440px;
+  height: 100px;
+  background-color: #E1D4C9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -2px 0px 0px 0px;
+  padding: 0px 40px 0px 40px;
+  }
+
+  .header-logo{
+    padding-top: 7px;
+  }
+
+ .header-navigation-item{
+   display: flex;
+ }
+
+ .navigation-item{
+    font-style: normal;
+    list-style: none;
+    text-decoration: none;
+ }
+
+ .navigation{
+    color:#403F3D;
+    gap: 4px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    padding: 0px 20px 0px 20px; 
+ }
+
+ .menu-item{
+    padding: 0px 4px 0px 0px;
+    color: var(--text-dark, #403F3D);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+ }
+
+ /* section enjoy */
+
+ .enjoy{
+    max-width: 1440px;
+    height: 645px;
+    padding: 2px;
+    background-color: #E1D4C9;
+ }
+.enjoy-background{
+    margin-left: 38px;
+    border-radius: 40px;
+    background:url(/coffee-house/img/img-hero.jpg) no-repeat center / cover;
+    display: flex;
+    max-width: 1360px;
+    height: 644px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.enjoy-blok{
+   max-width: 530px;
+   display: flex;
+   flex-direction: column;
+   gap: 40px;
+   padding-left: 100px;
+}
+
+.enjoy-span{
+ color: var(--text-accent, #B0907A);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Inter;
+font-size: 72px;
+font-style: italic;
+font-weight: 600;
+line-height: 105%; 
+}
+
+.enjoy-h1{
+   color: var(--text-light, #E1D4C9);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 72px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 105%;
+}
+
+.enjoy-info{
+   color: var(--text-light, #E1D4C9);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; 
+}
+
+.enjoy-button{
+   border-radius: 100px;
+   background: var(--background-body, #E1D4C9);
+   display: flex;
+   width: 200px;
+   padding: 20px 78px;
+   justify-content: center;
+   align-items: center;
+   gap: 8px;
+
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 150%; 
+   border: none;
+}
