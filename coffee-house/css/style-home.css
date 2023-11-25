@@ -343,3 +343,97 @@ line-height: 105%;
    gap: 32px;
 }
 
+/* "mobile-app */
+
+.app-mobile{
+   max-width: 1440px;
+   background-color: #E1D4C9; 
+   padding: 96px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.info-app-mobile{
+   display: grid;
+   gap: 40px;
+}
+
+
+.title-app{
+   color: var(--text-dark, #403F3D);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 60px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%;
+   padding-top: 144px;
+}
+
+.title-app-span{
+   color: var(--text-accent, #B0907A);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 60px;
+   font-style: italic;
+   font-weight: 600;
+   line-height: 125%;
+}
+
+.about-app{
+   color: var(--text-dark, #403F3D);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; 
+}
+
+.app-link{
+   display: flex;
+   width: 158px;
+   padding: 12px 20px;
+   align-items: center;
+   gap: 8px;
+   border-radius: 100px;
+   border: 1px solid var(--border-dark, #665F55);
+}
+
+.available{
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 10px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 140%;
+}
+
+.app{
+   color: var(--text-dark, #403F3D);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 150%; 
+}
+
+.link-app{
+   display: flex;
+   gap: 20px;
+}
+
+.info-link-downl{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+    padding-left: 7px;
+}
+
+.download-link{
+   display: flex;
+}
