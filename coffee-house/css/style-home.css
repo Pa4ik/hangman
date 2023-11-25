@@ -73,7 +73,7 @@
 .enjoy-background{
     margin-left: 38px;
     border-radius: 40px;
-    background:url(/coffee-house/img/img-hero.jpg) no-repeat center / cover;
+    background: url('../img/img-hero.jpg') no-repeat center / cover;
     display: flex;
     max-width: 1360px;
     height: 644px;
@@ -140,4 +140,127 @@ line-height: 105%;
    font-weight: 600;
    line-height: 150%; 
    border: none;
+}
+
+
+/* favorite */
+
+.favorite-coffee{
+   max-width: 1440px;
+   background-color: #E1D4C9;
+   padding-top: 97px;
+}
+
+.title-favorite{
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 60px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+}
+
+.title-span{
+   color: var(--text-accent, #B0907A);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 60px;
+   font-style: italic;
+   font-weight: 600;
+   line-height: 125%;
+}
+
+.swiper{
+   padding-top: 40px;
+}
+
+.slider{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0px 44px;
+}
+
+.slider-left{
+   padding-top: 160px;
+}
+
+.slider-right{
+   padding-top: 160px;
+}
+
+
+.button-left{
+   width: 60px;
+   height: 60px;
+   border-radius: 100%;
+   background-color: #E1D4C9;
+   border: 1px solid var(--border-dark, #665F55);
+}
+
+.slider-img{
+   max-width: 480px;
+}
+
+.favorite-info{
+   padding-top: 21px;
+   display: grid;
+   justify-items: center;
+   gap: 16px;
+}
+
+.favorite-info-h3{
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+}
+
+.favorite-span{
+   color: var(--text-dark, #403F3D);
+   max-width: 480px;
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; 
+}
+
+.favorite-info-price{
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+}
+
+.favorite-info-peginacion{
+   display: flex;
+   gap: 12px;
+   padding-top: 23px;
+}
+
+.peginacion{
+   width: 40px;
+   height: 4px;
+   border-radius: 100px;
+   background: var(--border-light, #C1B6AD);
+}
+
+.peginacion-active{
+   width: 40px;
+   height: 4px;
+   border-radius: 100px;
+   background: var(--border-dark, #665F55);
 }
