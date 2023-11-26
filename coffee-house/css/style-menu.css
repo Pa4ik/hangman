@@ -112,6 +112,8 @@
     gap: 8px;
     border-radius: 100px;
 border: 1px solid var(--border-light, #C1B6AD);
+transition: 1s;
+cursor: pointer;
 }
 
 .btn-back{
@@ -121,6 +123,8 @@ border: 1px solid var(--border-light, #C1B6AD);
     align-items: center;
     border-radius: 100px;
     border: 1px solid var(--border-light, #C1B6AD);
+    background-color: #C1B6AD;
+    transition: 1s;
 }
 
 .btn-text{
@@ -131,6 +135,7 @@ border: 1px solid var(--border-light, #C1B6AD);
     font-style: normal;
     font-weight: 600;
     line-height: 150%; 
+    transition: 1s;
 }
 
 .menu-item-1{
@@ -327,3 +332,30 @@ border: 1px solid var(--border-light, #C1B6AD);
     background-size: 100% 2px;
  }
  
+
+ .menu-btn:hover{
+    transition: 1s;
+    background: var(--background-container, #665F55);
+ }
+ .menu-btn:hover .btn-back,
+ .btn-back:hover{
+    transition: 1s;
+    background: var(--background-body, #E1D4C9);
+ }
+
+ .menu-btn:hover .btn-text,
+ .btn-text:hover{
+    transition: 1s;
+    color: var(--background-body, #E1D4C9);
+ }
+
+ .btn-menu-active{
+    background: var(--background-container, #665F55);
+    cursor: auto;
+    .btn-back{
+        background: var(--background-body, #E1D4C9);
+    }
+    .btn-text{
+        color: var(--background-body, #E1D4C9);
+    }
+ }
