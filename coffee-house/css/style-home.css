@@ -712,7 +712,7 @@ line-height: 105%;
 .enj-svg{
     opacity:0;
     position: absolute;
-    left: 275px;
+    transform: translateX(120%);
     width: 20px;
     height: 20px;
     transition: 0.6s;
