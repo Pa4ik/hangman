@@ -15,6 +15,7 @@
   body{
     margin: auto;
     max-width: 1440px;
+    background-color: #E1D4C9;
   }
 
   /* header */
@@ -158,7 +159,7 @@ cursor: pointer;
    display: flex;
    flex-wrap: wrap;
    gap: 38px;
-   padding: 20px 39px;
+   padding: 20px 0px 20px 39px;
 }
 
 .menu-item-img{
@@ -186,6 +187,7 @@ cursor: pointer;
    align-items: center;
    border-radius: 40px;
    border: 1px solid var(--border-light, #C1B6AD);
+   cursor: pointer;
 }
 
 .info-menu-item{
@@ -438,18 +440,27 @@ cursor: pointer;
     color: var(--background-body, #E1D4C9);
  }
 
- .btn-menu-active{
-    background: var(--background-container, #665F55);
-    cursor: auto;
-    .btn-back{
-        background: var(--background-body, #E1D4C9);
-    }
-    .btn-text{
-        color: var(--background-body, #E1D4C9);
-    }
+ .btn-menu-active { 
+   background: var(--background-container, #665F55); 
+   cursor: auto; 
+}
+
+ .btn-menu-active .btn-back { 
+   background: var(--background-body, #E1D4C9);
  }
+ 
+ .btn-menu-active .btn-text { 
+   color: var(--background-body, #E1D4C9); 
+}
+ 
 
  .menu-img:hover{
+   transform: scale(1);
+   transition: 0.5s;
+  }
+
+  .item-menu:hover .menu-img,
+  .menu-img:hover{
    transform: scale(1);
    transition: 0.5s;
   }
