@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: space-between;
   margin: -2px 0px 0px 0px;
-  padding: 0px 40px 0px 40px;
+  padding: 0px 40px 2px 40px;
   }
 
   .header-logo{
@@ -69,12 +69,16 @@
  /* main */
 
  main{
+   display: grid;
+    justify-items: center;
     max-width: 1440px;
     background-color: #E1D4C9;
+    padding-bottom: 78px;
  }
 
  .title-h1{
     max-width: 800px;
+    padding-bottom: 20px;
  }
 
  .title-text{
@@ -101,12 +105,12 @@
  .often-btn{
     padding: 20px 0px;
     display: flex;
-    gap: 16px;
+    gap: 17px;
  }
 
 .menu-btn{
     display: flex;
-    padding: 6px 16px 6px 8px;
+    padding: 6px 16px 7px 7px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -118,7 +122,7 @@ cursor: pointer;
 
 .btn-back{
     display: flex;
-    padding: 7px 7px;
+    padding: 6px 6px;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
@@ -148,6 +152,91 @@ cursor: pointer;
 
 .menu-item-3{
     width: 96px;
+}
+
+.menu-coffee{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 38px;
+   padding: 20px 39px;
+}
+
+.menu-item-img{
+   width: 310px;
+   height: 310px;
+   flex-shrink: 0;
+   overflow: hidden;
+   border-radius: 40px;
+}
+
+.menu-img{
+   background: center/cover no-repeat;
+   width: 310px;
+   height: 310px;
+   transition: 0.5s;
+   transform: scale(1.1);
+   background-size: cover;
+}
+
+.item-menu{
+   display: flex;
+   height: 506px;
+   width: 310px;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 40px;
+   border: 1px solid var(--border-light, #C1B6AD);
+}
+
+.info-menu-item{
+   padding: 20px;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex: 1 0 0;
+   align-self: stretch;
+   display: flex;
+}
+
+.description{
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 12px;
+   align-self: stretch;
+   display: flex;
+}
+
+.menu-item-title{
+   color: var(--text-dark, #403F3D);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+}
+
+
+
+.menu-item-description{
+   color: var(--text-dark, #403F3D);
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%; 
+   font-family: Inter;
+}
+
+.menu-item-price{
+   color: var(--text-dark, #403F3D);
+   font-family: Inter;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+   font-feature-settings: 'clig' off, 'liga' off;
 }
 
  /* footer */
@@ -292,7 +381,7 @@ cursor: pointer;
  }
  
  .header-menu{
-    padding: 2px 0px;
+    padding: 3px 0px;
     color: #000000;
     background-size: 100% 2px; 
    }
@@ -359,3 +448,8 @@ cursor: pointer;
         color: var(--background-body, #E1D4C9);
     }
  }
+
+ .menu-img:hover{
+   transform: scale(1);
+   transition: 0.5s;
+  }
