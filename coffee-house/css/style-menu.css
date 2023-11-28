@@ -158,8 +158,6 @@ cursor: pointer;
 .menu-coffee{
    display: flex;
    flex-wrap: wrap;
-   gap: 38px;
-   padding: 19px 0px ;
    justify-content: center;
 }
 
@@ -206,7 +204,7 @@ cursor: pointer;
    align-items: center;
    border-radius: 100px;
    border: 1px solid var(--border-dark, #665F55);
-   display: flex;
+   display: none;
    cursor: pointer;
 }
 
@@ -392,6 +390,11 @@ cursor: pointer;
     display: flex;
     gap: 9px;
  }
+
+.nav-contact-item{
+   display: flex;
+   gap: 9px;
+}
  
  /* animation */
 
@@ -609,6 +612,10 @@ cursor: pointer;
    .coffee-list-2{
       display: none;
    }
+
+   .btn-next-list{
+      display: flex;
+   }
   
    .menu-coffee,
    .menu-dessert,
@@ -624,5 +631,67 @@ cursor: pointer;
    .contact-item{
       display: flex;
       gap: 9px;
+   }
+} 
+
+   @media (max-width: 505px){
+   .header{
+      padding: 0px 16px 2px 16px;
+   }
+
+   .title-h1{
+      padding-left: 16px;
+      padding-right: 16px;
+   }
+   .often-btn{
+      gap: 9px;
+   }
+   .offer-h2{
+      color: var(--text-light, #E1D4C9);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%;
+      display: block;
+   }
+   .offer-span{
+      color: var(--text-accent, #B0907A);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .foot{
+      padding: 0px 16px;
+   }
+}
+
+@media (max-width: 480px){
+   .title-text{
+      color: var(--text-dark, #403F3D);
+      text-align: center;
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .title-text-span{
+      color: var(--text-accent, #B0907A);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .footer-blol{
+      padding: 64px 17px;
+      gap: 38px;
    }
 }
