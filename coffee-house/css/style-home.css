@@ -867,6 +867,7 @@ line-height: 105%;
    .about-img1,
    .about-img4{
       transform: scale(1.06);
+      width: 688px;
    }
    .title-app{
       padding-top: 0px;
@@ -899,6 +900,38 @@ line-height: 105%;
    .swiper{
       display: grid;
       justify-items: center;
+   }
+}
+
+@media (max-width:601px){
+   .enjoy-h1{
+      color: var(--text-light, #E1D4C9);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 42px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 115%;
+   }
+
+   .enjoy-span{
+      color: var(--text-accent, #B0907A);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 42px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 115%; 
+   }
+
+   .enjoy-info{
+      color: var(--text-light, #E1D4C9);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; 
    }
 }
 
@@ -1041,22 +1074,23 @@ line-height: 105%;
    }
    
    .enjoy{
-      padding: 2px 18px;
+      padding: 0px 16px;
+      padding-bottom: 2px;
    }
    .enjoy-background{
       margin-left: 0px;
-      height: 551px;
+      height: 552px;
    }
    .enjoy-blok {
       padding-right: 16px;
-      padding-bottom: 4px;
-      padding-left: 13px;
+      padding-bottom: 2px;
+      padding-left: 16px;
   }
   .favorite-coffee {
    padding-top: 5px;
 }
  .title-favorite{
-   padding-bottom: 28px;
+   padding-bottom: 30px;
  }
  .slid {
    padding-bottom: 26px;
