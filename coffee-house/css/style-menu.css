@@ -158,8 +158,54 @@ cursor: pointer;
 .menu-coffee{
    display: flex;
    flex-wrap: wrap;
+   justify-content: center;
+}
+
+.list-dessert-1,
+.coffee-list-1{
+   display: flex;
+   flex-wrap: wrap;
    gap: 38px;
-   padding: 20px 0px 20px 39px;
+   padding: 19px 0px;
+   justify-content: center;
+}
+
+.list-dessert-2,
+.coffee-list-2{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 38px;
+   padding: 19px 0px;
+   justify-content: center;
+}
+
+.menu-tea{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 38px;
+   padding: 19px 0px ;
+   display: none;
+   justify-content: center;
+}
+
+.menu-dessert{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 38px;
+   padding: 19px 0px ;
+   display: none;
+   justify-content: center;
+}
+
+.btn-next-list{
+   width: 60px;
+   height: 60px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100px;
+   border: 1px solid var(--border-dark, #665F55);
+   display: none;
+   cursor: pointer;
 }
 
 .menu-item-img{
@@ -265,6 +311,7 @@ cursor: pointer;
     background: var(--background-container, #665F55);
     justify-content: flex-start;
     gap: 137px;
+    flex-wrap: wrap;
  }
  
  .offer{
@@ -343,9 +390,16 @@ cursor: pointer;
     display: flex;
     gap: 9px;
  }
+
+.nav-contact-item{
+   display: flex;
+   gap: 9px;
+}
  
  /* animation */
- 
+
+
+ @media (hover: hover) {
  .nav-item1,
  .nav-item2,
  .nav-item3,
@@ -464,3 +518,180 @@ cursor: pointer;
    transform: scale(1);
    transition: 0.5s;
   }
+
+  .btn-next-list:hover{
+   background: var(--background-container, #665F55);
+   transition: 0.5s;
+  }
+   
+  .svg-arrov{
+   transition: 0.5s;
+  }
+
+   .btn-next-list:hover .svg-arrov,
+   .svg-arrov:hover {
+      stroke: #E1D4C9;
+      transition: 0.5s;
+  }
+}
+
+
+.btn-menu-active { 
+   background: var(--background-container, #665F55); 
+   cursor: auto; 
+}
+
+ .btn-menu-active .btn-back { 
+   background: var(--background-body, #E1D4C9);
+ }
+ 
+ .btn-menu-active .btn-text { 
+   color: var(--background-body, #E1D4C9); 
+}
+ 
+
+/* burger */
+
+.nav-burger{
+   display: none;
+   background-color: #E1D4C9;
+   border: none;
+   cursor: pointer;
+   width: 44px;
+   height: 44px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100px;
+   border: 1px solid var(--border-dark, #665F55);
+   flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 2px;
+}
+
+  .burger__line{
+   display: none;                  
+
+} 
+
+
+  .nav-burger::after{
+   display: block;          
+   width: 16px;
+   height: 0px;                
+   content: '';                                
+   border-bottom: 1.5px solid #403F3D;      
+  }
+
+  .nav-burger::before{
+   display: block;          
+   width: 16px;
+   height: 0px;                
+   content: '';                                
+   border-bottom: 1.5px solid #403F3D;      
+  }
+
+ 
+
+  
+@media (max-width: 768px){
+   .title-text{
+      max-width: 700px;
+   }
+
+   .header-navigation{
+      display: none;
+   }
+   .header-menu{
+      display: none;
+   }
+   .nav-burger{
+      display: flex;
+   }
+   .list-dessert-1,
+   .coffee-list-2{
+      display: none;
+   }
+
+   .btn-next-list{
+      display: flex;
+   }
+  
+   .menu-coffee,
+   .menu-dessert,
+   .menu-tea{
+      padding:0px;
+      padding-bottom: 20px;
+      gap:19px;
+   } 
+   .footer-blol{
+      padding: 102px 60px;
+      gap: 100px;
+   }
+   .contact-item{
+      display: flex;
+      gap: 9px;
+   }
+} 
+
+   @media (max-width: 505px){
+   .header{
+      padding: 0px 16px 2px 16px;
+   }
+
+   .title-h1{
+      padding-left: 16px;
+      padding-right: 16px;
+   }
+   .often-btn{
+      gap: 9px;
+   }
+   .offer-h2{
+      color: var(--text-light, #E1D4C9);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%;
+      display: block;
+   }
+   .offer-span{
+      color: var(--text-accent, #B0907A);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .foot{
+      padding: 0px 16px;
+   }
+}
+
+@media (max-width: 480px){
+   .title-text{
+      color: var(--text-dark, #403F3D);
+      text-align: center;
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .title-text-span{
+      color: var(--text-accent, #B0907A);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 125%;
+   }
+   .footer-blol{
+      padding: 64px 17px;
+      gap: 38px;
+   }
+}
