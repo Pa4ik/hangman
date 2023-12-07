@@ -28,19 +28,3 @@ window.addEventListener("click", function(event){
       nav?.classList.remove("navigation-visibl");    
     } 
   });
-
-
-
-
-//Кнопки приложение(для красоты)
-const btnAppStore = document.querySelector('.app-store');
-const btnGooglePlay= document.querySelector('.google-play');
-
-
-btnAppStore?.addEventListener("click" , () => {
-    alert("Sorry .The application is currently unavailable")
- });
-
- btnGooglePlay?.addEventListener("click" , () => {
-    alert("Sorry .The application is currently unavailable")
- });

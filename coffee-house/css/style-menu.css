@@ -33,6 +33,7 @@
 
   .header-logo{
     padding-top: 7px;
+    z-index: 2;
   }
 
  .header-navigation-item{
@@ -591,6 +592,40 @@ cursor: pointer;
    border-bottom: 1.5px solid #403F3D;      
   }
 
+  /* ???? */
+
+.burger::before{
+   bottom: 0;
+  }
+
+  .burger::after{
+   bottom: 0;
+  }
+
+
+
+  .burger--active::before{
+   transform: rotate(45deg);
+   transition: transform 0.3s
+ 
+  }
+
+  .burger--active::after{
+   transform: rotate(-45deg);
+   position: absolute;
+   transition: transform 0.3s
+  }
+
+
+  .bur-menu{
+   display: none;
+}
+@media (max-width:768px){
+   .bur-menu{
+      display: block;
+   }
+}
+
  
 
   
@@ -607,6 +642,7 @@ cursor: pointer;
    }
    .nav-burger{
       display: flex;
+      z-index: 2;
    }
    .list-dessert-1,
    .coffee-list-2{
@@ -633,6 +669,68 @@ cursor: pointer;
       gap: 9px;
    }
 } 
+
+
+/* Burger */
+@media (max-width: 768px){
+
+   .header-navigation{
+      display: grid;
+      position: absolute;
+      top: 80px;
+      left: 0px;
+      background-color: #E1D4C9;
+      width: 100%;
+      justify-items: center;
+      gap: 21px;
+      padding-bottom: 40vh;
+      z-index: 1;
+      transform: translateY(-300%);
+      transition: transform 0.6s ease-in-out;
+   }
+   .header-navigation-item {
+      display: flex;
+      padding: 80px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      flex: 1 0 0;
+  }
+  .navigation {
+   color: var(--text-dark, #403F3D);
+   text-align: center;
+   font-feature-settings: 'clig' off, 'liga' off;
+   font-family: Inter;
+   font-size: 32px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%; 
+  }
+  .bur-menu{
+   display: flex;
+   gap: 13px;
+  }
+  .menu-item{
+     color: var(--text-dark, #403F3D);
+     text-align: center;
+     font-feature-settings: 'clig' off, 'liga' off;
+     font-family: Inter;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 125%;
+  }
+   .cup-coffee{
+      width: 40px;
+      height: 40px;
+   }
+   .navigation-visibl{
+      transform: translateY(0%);
+   }
+}
+
+
+
 
    @media (max-width: 505px){
    .header{
@@ -693,5 +791,14 @@ cursor: pointer;
    .footer-blol{
       padding: 64px 17px;
       gap: 38px;
+   }
+}
+
+.bur-menu{
+   display: none;
+}
+@media (max-width:768px){
+   .bur-menu{
+      display: flex;
    }
 }
