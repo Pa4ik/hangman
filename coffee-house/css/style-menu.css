@@ -118,7 +118,7 @@
     gap: 8px;
     border-radius: 100px;
 border: 1px solid var(--border-light, #C1B6AD);
-transition: 1s;
+transition: 0.5s;
 cursor: pointer;
 }
 
@@ -130,7 +130,7 @@ cursor: pointer;
     border-radius: 100px;
     border: 1px solid var(--border-light, #C1B6AD);
     background-color: #C1B6AD;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .btn-text{
@@ -159,7 +159,7 @@ cursor: pointer;
 .menu-coffee{
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
+   justify-content: center;  
 }
 
 .list-dessert-1,
@@ -185,7 +185,6 @@ cursor: pointer;
    flex-wrap: wrap;
    gap: 38px;
    padding: 19px 0px ;
-   display: none;
    justify-content: center;
 }
 
@@ -194,7 +193,6 @@ cursor: pointer;
    flex-wrap: wrap;
    gap: 38px;
    padding: 19px 0px ;
-   display: none;
    justify-content: center;
 }
 
@@ -287,6 +285,38 @@ cursor: pointer;
    line-height: 125%; 
    font-feature-settings: 'clig' off, 'liga' off;
 }
+
+
+/* БЛОКИ МЕНЮ */
+
+/* @keyframes menu-hide {
+   0% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 0;
+     display: none;
+   }
+ }
+  */
+ @keyframes menu--active {
+   0% {
+     opacity: 0;
+     display: flex;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ .menu-hide {
+   animation: menu-hide 1s forwards;
+   display: none;
+ }
+ 
+ .menu--active {
+   animation: menu--active 0.7s forwards;
+ }
 
  /* footer */
 
@@ -802,3 +832,18 @@ cursor: pointer;
       display: flex;
    }
 }
+
+
+   .header-menu{
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 50% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 2px;
+      transition: background-size .4s; 
+      transition: 0.7s;    
+   }
+   .header-menu{
+      padding: 3px 0px;
+      color: #000000;
+      background-size: 100% 2px; 
+     }
