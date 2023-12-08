@@ -211,6 +211,17 @@ cursor: pointer;
    cursor: pointer;
 }
 
+.btn-next-list-2{
+   width: 60px;
+   height: 60px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100px;
+   border: 1px solid var(--border-dark, #665F55);
+   display: none;
+   cursor: pointer;
+}
+
 .menu-item-img{
    width: 310px;
    height: 310px;
@@ -558,12 +569,24 @@ cursor: pointer;
    background: var(--background-container, #665F55);
    transition: 0.5s;
   }
+
+  .btn-next-list-2:hover{
+   background: var(--background-container, #665F55);
+   transition: 0.5s;
+  }
+
    
   .svg-arrov{
    transition: 0.5s;
   }
 
    .btn-next-list:hover .svg-arrov,
+   .svg-arrov:hover {
+      stroke: #E1D4C9;
+      transition: 0.5s;
+  }
+
+  .btn-next-list-2:hover .svg-arrov,
    .svg-arrov:hover {
       stroke: #E1D4C9;
       transition: 0.5s;
@@ -678,12 +701,15 @@ cursor: pointer;
       display: flex;
       z-index: 2;
    }
-   .list-dessert-1,
+   .list-dessert-2,
    .coffee-list-2{
       display: none;
    }
 
    .btn-next-list{
+      display: flex;
+   }
+   .btn-next-list-2{
       display: flex;
    }
   
@@ -851,3 +877,12 @@ cursor: pointer;
       color: #000000;
       background-size: 100% 2px; 
      }
+
+
+
+     .list-active{
+      display: flex;
+    }
+    .list-hide{
+      display: none;
+    }   

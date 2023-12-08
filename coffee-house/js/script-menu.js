@@ -45,6 +45,10 @@ window.addEventListener("click", function(event){
   const menuTea = document.querySelector(".menu-tea");
   const menuDessert = document.querySelector(".menu-dessert");
 
+  const btnListNext = document.querySelector(".btn-next-list");
+  const btnListNext2 = document.querySelector(".btn-next-list-2");
+  const coffeeList2 = document.querySelector(".coffee-list-2");
+  const dessertList2 = document.querySelector(".list-dessert-2")
   
   btnMenuCoffee?.addEventListener("click" , () => {
     btnMenuCoffee?.classList.add("btn-menu-active");
@@ -54,8 +58,12 @@ window.addEventListener("click", function(event){
     menuTea.classList.remove("menu--active");
     menuDessert.classList.remove("menu--active");
     menuCoffee.classList.remove("menu-hide")
+    dessertList2?.classList.remove("list-active");
+    btnListNext?.classList.remove("list-hide");
     menuTea.classList.add("menu-hide");
     menuDessert.classList.add("menu-hide");
+    dessertList2?.classList.remove("list-active");
+    btnListNext2?.classList.remove("list-hide");
  });
 
  btnMenuTea?.addEventListener("click" , () => {
@@ -68,6 +76,11 @@ window.addEventListener("click", function(event){
   menuCoffee.classList.add("menu-hide")
   menuTea.classList.remove("menu-hide");
   menuDessert.classList.add("menu-hide");
+  coffeeList2?.classList.remove("list-active");
+  dessertList2?.classList.remove("list-active");
+  btnListNext?.classList.remove("list-hide");
+  dessertList2?.classList.remove("list-active");
+  btnListNext2?.classList.remove("list-hide");
 });
 
 btnMenuDesset?.addEventListener("click" , () => {
@@ -80,6 +93,18 @@ btnMenuDesset?.addEventListener("click" , () => {
   menuCoffee.classList.add("menu-hide")
   menuTea.classList.add("menu-hide");
   menuDessert.classList.remove("menu-hide");
+  coffeeList2?.classList.remove("list-active");
+  btnListNext?.classList.remove("list-hide");
 });
 
- 
+ // кнопка показать еще 
+
+ btnListNext?.addEventListener("click" , () => {
+  coffeeList2?.classList.add("list-active")
+  btnListNext?.classList.add("list-hide")
+});
+
+btnListNext2?.addEventListener("click" , () => {
+  dessertList2?.classList.add("list-active")
+  btnListNext2?.classList.add("list-hide")
+});
