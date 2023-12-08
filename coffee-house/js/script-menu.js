@@ -108,3 +108,16 @@ btnListNext2?.addEventListener("click" , () => {
   dessertList2?.classList.add("list-active")
   btnListNext2?.classList.add("list-hide")
 });
+
+// При изменении размеров экрана 
+function windowSize() {
+  if (window.innerWidth > 768) {
+    coffeeList2?.classList.remove("list-active");
+    btnListNext?.classList.remove("list-hide");
+    dessertList2?.classList.remove("list-active");
+    btnListNext2?.classList.remove("list-hide");
+  } else {
+  }
+}
+
+window.addEventListener("resize", windowSize);
