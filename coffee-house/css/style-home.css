@@ -85,7 +85,7 @@
 .enjoy-background{
     margin-left: 38px;
     border-radius: 40px;
-    background: url('../img/img-hero.jpg') no-repeat center / cover;
+    /* background: url('../img/img-hero.jpg') no-repeat center / cover; */
     display: flex;
     max-width: 1360px;
     height: 644px;
@@ -94,13 +94,28 @@
     align-items: flex-start;
     align-self: stretch;
 }
+.size-video{
+   display: flex;
+   justify-content: center;
+   max-width:1360px;
+   height: 644px;
+   overflow: hidden;
+   border-radius: 40px;
+}
+
+#myVideo {
+   width: 500%;
+   height: 800px;
+}
 
 .enjoy-blok{
+   position: absolute;
    max-width: 530px;
    display: flex;
    flex-direction: column;
    gap: 40px;
    padding-left: 100px;
+   padding-right: 40px;
 }
 
 .enjoy-span{
@@ -1198,7 +1213,7 @@ line-height: 105%;
       height: 552px;
    }
    .enjoy-blok {
-      padding-right: 16px;
+      padding-right: 25px;
       padding-bottom: 2px;
       padding-left: 16px;
   }

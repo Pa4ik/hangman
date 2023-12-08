@@ -34,8 +34,6 @@ window.addEventListener("click", function(event){
   });
 
 
-
-
 //Кнопки приложение(для красоты)
 const btnAppStore = document.querySelector('.app-store');
 const btnGooglePlay= document.querySelector('.google-play');
