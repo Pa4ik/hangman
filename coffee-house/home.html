@@ -67,6 +67,9 @@
         <section class="favorite-coffee" id="favorite">
             <h2 class="title-favorite">Choose your <span class="title-span">favorite</span> coffee</h2>
             <div class="swiper">
+                <input class="input-pegination" type="radio" name="memslid" id="slide1" checked>
+                <input class="input-pegination" type="radio" name="memslid" id="slide2">
+                <input class="input-pegination" type="radio" name="memslid" id="slide3">
                 <div class="slider">
                     <div class="slider-left"> 
                         <button class="button-left">
@@ -77,8 +80,33 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="slider-img">
-                        <img class="slid" src="png/coffee-slider-1.png" alt="slider-png">
+                    <div class="slider-images">                     
+                        <div class="slider-img">
+                            <div class="slide">
+                                <img class="slid" src="png/coffee-slider-1.png" alt="slider-png">
+                                <div class="info-slide">
+                                    <h3 class="favorite-info-h3">S’mores Frappuccino</h3>
+                                    <span class="favorite-span">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</span>
+                                    <span class="favorite-info-price">$5.50</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <img class="slid" src="png/coffee-slider-2.png" alt="slider-png">
+                                <div class="info-slide">
+                                    <h3 class="favorite-info-h3">Caramel Macchiato</h3>
+                                    <span class="favorite-span">Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.</span>
+                                    <span class="favorite-info-price">$5.00</span>
+                                </div>    
+                            </div>
+                            <div class="slide">
+                                <img class="slid" src="png/coffee-slider-3.png" alt="slider-png">
+                                <div class="info-slide">
+                                    <h3 class="favorite-info-h3">Ice coffee</h3>
+                                    <span class="favorite-span">A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.</span>
+                                    <span class="favorite-info-price">$4.50</span>
+                                </div>
+                            </div>
+                        </div>              
                     </div>
                     <div class="slider-right">
                         <button class="button-left">
@@ -91,13 +119,16 @@
                     </div>
                 </div>
                 <div class="favorite-info">
-                    <h3 class="favorite-info-h3">S’mores Frappuccino</h3>
-                    <span class="favorite-span">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</span>
-                    <span class="favorite-info-price">$5.50</span>
                     <div class="favorite-info-peginacion">
-                        <div class="peginacion-active"></div>
-                        <div class="peginacion"></div>
-                        <div class="peginacion"></div>
+                        <label class="btn-peginacion" for="slide1">
+                            <div class="peginacion" ></div>
+                        </label>
+                        <label class="btn-peginacion" for="slide2">
+                            <div class="peginacion" ></div>
+                        </label>
+                        <label class="btn-peginacion" for="slide3">
+                            <div class="peginacion" ></div>
+                        </label>
                     </div>
                 </div>
             </div>
