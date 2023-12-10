@@ -144,12 +144,12 @@ btnLeftSwiper.addEventListener('click', () => {
 
 
  //фикс для сафари 
- if ('ontouchstart' in window) {
-  // Ваш код для обработки событий touchstart и touchend
-  sliderImg.addEventListener('touchstart', touchStart, false);
-  sliderImg.addEventListener('touchend', touchEnd, false);
-} else {
-
+if ('ontouchstart' in window) { 
+  sliderImg.addEventListener('touchstart', touchStart, false); 
+  sliderImg.addEventListener('touchend', touchEnd, false); 
+} else { 
+  sliderImg.addEventListener('-webkit-touch-start', touchStart, false); 
+  sliderImg.addEventListener('-webkit-touch-end', touchEnd, false); 
 }
 
 
