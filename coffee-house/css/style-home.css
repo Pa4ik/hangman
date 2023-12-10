@@ -361,7 +361,12 @@ line-height: 105%;
 }
 
 .active-peg{
-   background: var(--border-dark, #665F55);
+  
+      width: 40px;
+      height: 4px;
+      border-radius: 100px;
+      background-color: #665F55;
+
 }
 
 /* about */

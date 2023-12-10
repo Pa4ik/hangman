@@ -45,26 +45,26 @@ window.addEventListener("click", function(event){
  // кнопки 
  sliderImg.style.right = '0%';
 
- btnRightSwiper.addEventListener('click', () => { 
-   if (sliderImg.style.right === '0%') { 
-     sliderImg.style.right = '100%'; 
-     peg2.classList.add("active-peg"); 
-     peg1.classList.remove("active-peg"); 
-     peg3.classList.remove("active-peg"); 
-   } else if (sliderImg.style.right === '100%') {
-      sliderImg.style.right = '200%';
-       peg3.classList.add("active-peg");
-        peg1.classList.remove("active-peg");
-         peg2.classList.remove("active-peg"); 
-   } else {
-     sliderImg.style.right = '0%';
-     peg1.classList.add("active-peg"); 
-     peg2.classList.remove("active-peg"); 
-     peg3.classList.remove("active-peg"); 
-   } 
- });
- 
- btnLeftSwiper.addEventListener('click', () => { 
+ function btnRightClick() {
+   if (sliderImg.style.right === '0%')
+    { sliderImg.style.right = '100%';
+     peg2.classList.add("active-peg");
+      peg1.classList.remove("active-peg"); 
+      peg3.classList.remove("active-peg"); 
+    } else if (sliderImg.style.right === '100%') { 
+      sliderImg.style.right = '200%'; 
+      peg3.classList.add("active-peg"); 
+      peg1.classList.remove("active-peg"); 
+      peg2.classList.remove("active-peg"); 
+    } else { sliderImg.style.right = '0%'; 
+    peg1.classList.add("active-peg"); 
+    peg2.classList.remove("active-peg"); 
+    peg3.classList.remove("active-peg"); 
+  } }
+ btnRightSwiper.addEventListener('click', btnRightClick);
+
+
+btnLeftSwiper.addEventListener('click', () => { 
    if (sliderImg.style.right === '0%') { 
      sliderImg.style.right = '200%';
      peg3.classList.add("active-peg"); 
@@ -114,7 +114,6 @@ window.addEventListener("click", function(event){
  });
 
 
-
  // сенсорных устройств
  let x1 = null;
  let x2 = null;
@@ -144,6 +143,9 @@ window.addEventListener("click", function(event){
  sliderImg.addEventListener('touchend', touchEnd, false);
 
 
+ // авто переключение слайдов
+ setInterval(btnRightClick , 6000)
+
 
 //Кнопки приложение(для красоты)
 const btnAppStore = document.querySelector('.app-store');
@@ -157,4 +159,5 @@ btnAppStore?.addEventListener("click" , () => {
  btnGooglePlay?.addEventListener("click" , () => {
     alert("Sorry .The application is currently unavailable")
  });
+
 
