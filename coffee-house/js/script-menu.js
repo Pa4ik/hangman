@@ -121,3 +121,39 @@ function windowSize() {
 }
 
 window.addEventListener("resize", windowSize);
+
+//открытие и закрытие модалки 
+
+const itemMenu = document.querySelectorAll(".item-menu");
+const modalMenu = document.querySelector('.modal-menu-info');
+const closeModalBtn =document.querySelector('.modal-close')
+
+itemMenu.forEach(item => {
+  item.addEventListener("click", function() {
+    modalMenu.classList.add("menu-active");
+    document.documentElement.style.overflow = 'hidden';
+  });
+});
+
+
+
+
+closeModalBtn.addEventListener("click" , () => {
+  modalMenu.classList.remove("menu-active");
+  document.documentElement.style.overflow = '';
+});
+
+    window.addEventListener ("keydown", function(event){
+      if (event.keyCode === 27){
+        modalMenu?.classList.remove("menu-active")
+        document.documentElement.style.overflow = '';
+      }
+    })
+  
+    window.addEventListener('click', (event) => {
+      if (event.target === modalMenu) {
+        modalMenu?.classList.remove('menu-active');
+        document.documentElement.style.overflow = ''; 
+      }
+    });
+  
