@@ -143,6 +143,16 @@ btnLeftSwiper.addEventListener('click', () => {
  sliderImg.addEventListener('touchend', touchEnd, false);
 
 
+ //фикс для сафари 
+ if ('ontouchstart' in window) {
+  // Ваш код для обработки событий touchstart и touchend
+  sliderImg.addEventListener('touchstart', touchStart, false);
+  sliderImg.addEventListener('touchend', touchEnd, false);
+} else {
+
+}
+
+
  // авто переключение слайдов
  setInterval(btnRightClick , 6000)
 
