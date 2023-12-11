@@ -158,18 +158,26 @@ closeModalBtn.addEventListener("click" , () => {
 
 
 
+//json 
+    let products;
+    fetch('./js/products.json')
+        .then(response => {
+          return response.json();
+        })
+        .then(globalProducts => {
+          products = globalProducts;
+          console.log(products);
+        });
 
-// подключение json
-import products from '../js/products.js'
 
-console.log(products)
-console.log(products[0].name)
- 
-for (let i = 0; i < products.length; i++) {
-  console.log(products[i].name);
-}
-
-console.log(`${products[0].name}`)
+        
+//изменяймыеблоки 
+const modalImg = document?.querySelector(".modal-img");
+const descriptionTitle = document?.querySelector(".description-title");
+const descriptionAbout = document?.querySelector(".description-about");
+const sizePrice = document?.querySelector(".size-price");
+const itemBtnSize = document?.querySelector(".item-btn-size");
+const additives = document?.querySelector(".additives");
 
 
 //итемы
@@ -194,911 +202,110 @@ const item18 = document?.querySelector(".item-18");
 const item19 = document?.querySelector(".item-19");
 const item20 = document?.querySelector(".item-20");
 
-//изменяймыеблоки 
-const modalImg = document?.querySelector(".modal-img");
-const descriptionTitle = document?.querySelector(".description-title");
-const descriptionAbout = document?.querySelector(".description-about");
-const sizePrice = document?.querySelector(".size-price");
-const itemBtnSize = document?.querySelector(".item-btn-size");
-const additives = document?.querySelector(".additives");
 
-//coffee
-item1?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-1.jpg">`;
-  descriptionTitle.innerHTML = `${products[0].name}`;
-  descriptionAbout.innerHTML = `${products[0].description}`;
+function modalContent(index) {
+    modalImg.innerHTML = `<img class="modal-img-item" src="${products[index-1].img}">`;
+  descriptionTitle.innerHTML = `${products[index-1].name}`;
+  descriptionAbout.innerHTML = `${products[index-1].description}`;
   itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
               <div class="btn-back-size">
                   <p class="size-item">S</p>
               </div>
-              <span class="btn-text">${products[0].sizes.s.size}</span>
+              <span class="btn-text">${products[index-1].sizes.s.size}</span>
           </div>
           <div class="btn-item-size ">
               <div class="btn-back-size">
                   <p class="size-item">M</p>
               </div>
-              <span class="btn-text">${products[0].sizes.m.size}</span>
+              <span class="btn-text">${products[index-1].sizes.m.size}</span>
           </div>
           <div class="btn-item-size ">
               <div class="btn-back-size">
                   <p class="size-item">L</p>
               </div>
-              <span class="btn-text">${products[0].sizes.l.size}</span>
+              <span class="btn-text">${products[index-1].sizes.l.size}</span>
           </div>`
-  additives.innerHTML = `<div class="btn-item-size">
+  additives.innerHTML = `
+       <div class="btn-item-size">
           <div class="btn-back-size">
               <p class="size-item">1</p>
           </div>
-          <span class="btn-text">${products[0].additives[0].name}</span>
+          <span class="btn-text">${products[index-1].additives[0].name}</span>
       </div>
       <div class="btn-item-size ">
           <div class="btn-back-size">
               <p class="size-item">2</p>
           </div>
-          <span class="btn-text">${products[0].additives[1].name}</span>
+          <span class="btn-text">${products[index-1].additives[1].name}</span>
       </div>
       <div class="btn-item-size ">
           <div class="btn-back-size">
               <p class="size-item">3</p>
           </div>
-          <span class="btn-text">${products[0].additives[2].name}</span>
+          <span class="btn-text">${products[index-1].additives[2].name}</span>
       </div>`   
   sizePrice.innerHTML = `
       <div class="price-p">Total:</div>
-      <div class="price-p">$${products[0].price}</div>`
-});
-
-item2?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-2.jpg">`;
-  descriptionTitle.innerHTML = `${products[1].name}`;
-  descriptionAbout.innerHTML = `${products[1].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[1].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[1].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[1].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[1].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[1].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[1].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[1].price}</div>`
-});
-
-item3?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-3.jpg">`;
-  descriptionTitle.innerHTML = `${products[2].name}`;
-  descriptionAbout.innerHTML = `${products[2].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[2].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[2].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[2].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[2].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[2].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[2].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[2].price}</div>`
-});
-
-item4?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-4.jpg">`;
-  descriptionTitle.innerHTML = `${products[3].name}`;
-  descriptionAbout.innerHTML = `${products[3].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[3].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[3].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[3].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[3].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[3].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[3].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[3].price}</div>`
-});
-
-item5?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-4.jpg">`;
-  descriptionTitle.innerHTML = `${products[4].name}`;
-  descriptionAbout.innerHTML = `${products[4].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[4].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[4].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[4].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[4].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[4].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[4].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[4].price}</div>`
-});
-
-item6?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-6.jpg">`;
-  descriptionTitle.innerHTML = `${products[5].name}`;
-  descriptionAbout.innerHTML = `${products[5].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[5].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[5].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[5].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[5].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[5].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[5].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[5].price}</div>`
-});
-
-item7?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-7.jpg">`;
-  descriptionTitle.innerHTML = `${products[6].name}`;
-  descriptionAbout.innerHTML = `${products[6].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[6].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[6].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[6].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[6].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[6].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[6].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[6].price}</div>`
-});
-
-item8?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/coffee-8.jpg">`;
-  descriptionTitle.innerHTML = `${products[7].name}`;
-  descriptionAbout.innerHTML = `${products[7].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[7].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[7].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[7].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[7].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[7].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[7].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[7].price}</div>`
-});
-//tea
-item9?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/tea-1.png">`;
-  descriptionTitle.innerHTML = `${products[8].name}`;
-  descriptionAbout.innerHTML = `${products[8].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[8].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[8].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[8].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[8].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[8].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[8].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[8].price}</div>`
-});
-
-item10?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/tea-2.png">`;
-  descriptionTitle.innerHTML = `${products[9].name}`;
-  descriptionAbout.innerHTML = `${products[9].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[9].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[9].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[9].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[9].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[9].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[9].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[9].price}</div>`
-});
-
-item11?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/tea-3.png">`;
-  descriptionTitle.innerHTML = `${products[10].name}`;
-  descriptionAbout.innerHTML = `${products[10].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[10].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[10].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[10].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[10].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[10].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[10].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[10].price}</div>`
-});
-
-item12?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/tea-4.png">`;
-  descriptionTitle.innerHTML = `${products[11].name}`;
-  descriptionAbout.innerHTML = `${products[11].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[11].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[11].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[11].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[11].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[11].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[11].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[11].price}</div>`
-});
-//dessert
-item13?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-1.png">`;
-  descriptionTitle.innerHTML = `${products[12].name}`;
-  descriptionAbout.innerHTML = `${products[12].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[12].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[12].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[12].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[12].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[12].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[12].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[12].price}</div>`
-});
-
-item14?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-2.png">`;
-  descriptionTitle.innerHTML = `${products[13].name}`;
-  descriptionAbout.innerHTML = `${products[13].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[13].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[13].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[13].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[13].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[13].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[13].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[13].price}</div>`
-});
-
-item15?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-3.png">`;
-  descriptionTitle.innerHTML = `${products[14].name}`;
-  descriptionAbout.innerHTML = `${products[14].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[14].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[14].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[14].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[14].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[14].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[14].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[14].price}</div>`
-});
-
-item16?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-4.png">`;
-  descriptionTitle.innerHTML = `${products[15].name}`;
-  descriptionAbout.innerHTML = `${products[15].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[15].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[15].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[15].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[15].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[15].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[15].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[15].price}</div>`
-});
-
-item17?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-5.png">`;
-  descriptionTitle.innerHTML = `${products[16].name}`;
-  descriptionAbout.innerHTML = `${products[16].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[16].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[16].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[16].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[16].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[16].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[16].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[16].price}</div>`
-});
-
-item18?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-6.png">`;
-  descriptionTitle.innerHTML = `${products[17].name}`;
-  descriptionAbout.innerHTML = `${products[17].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[17].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[17].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[17].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[17].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[17].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[17].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[17].price}</div>`
-});
-
-item19?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-7.png">`;
-  descriptionTitle.innerHTML = `${products[18].name}`;
-  descriptionAbout.innerHTML = `${products[18].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[18].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[18].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[18].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[18].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[18].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[18].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[18].price}</div>`
-});
-
-item20?.addEventListener("click" , () => {
-  modalImg.innerHTML = `<img class="modal-img-item" src="../coffee-house/img/dessert-8.png">`;
-  descriptionTitle.innerHTML = `${products[19].name}`;
-  descriptionAbout.innerHTML = `${products[19].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[19].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[19].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size ">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[19].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `<div class="btn-item-size >
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[19].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[19].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[19].additives[2].name}</span>
-      </div>`   
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[19].price}</div>`
-});
+      <div class="price-p">$${products[index-1].price}</div>`
+  }
+  
+  item1?.addEventListener("click", () => {
+    modalContent(1);
+  });
+  item2?.addEventListener("click", () => {
+    modalContent(2);
+  });
+  item3?.addEventListener("click", () => {
+    modalContent(3);
+  });
+  item4?.addEventListener("click", () => {
+    modalContent(4);
+  });
+  item5?.addEventListener("click", () => {
+    modalContent(5);
+  });
+  item6?.addEventListener("click", () => {
+    modalContent(6);
+  });
+  item7?.addEventListener("click", () => {
+    modalContent(7);
+  });
+  item8?.addEventListener("click", () => {
+    modalContent(8);
+  });
+  item9?.addEventListener("click", () => {
+    modalContent(9);
+  });
+  item10?.addEventListener("click", () => {
+    modalContent(10);
+  });
+  item11?.addEventListener("click", () => {
+    modalContent(11);
+  });
+  item12?.addEventListener("click", () => {
+    modalContent(12);
+  });
+  item13?.addEventListener("click", () => {
+    modalContent(13);
+  });
+  item14?.addEventListener("click", () => {
+    modalContent(14);
+  });
+  item15?.addEventListener("click", () => {
+    modalContent(15);
+  });
+  item16?.addEventListener("click", () => {
+    modalContent(16);
+  });
+  item17?.addEventListener("click", () => {
+    modalContent(17);
+  });
+  item18?.addEventListener("click", () => {
+    modalContent(18);
+  });
+  item19?.addEventListener("click", () => {
+    modalContent(19);
+  });
+  item20?.addEventListener("click", () => {
+    modalContent(20);
+  });
