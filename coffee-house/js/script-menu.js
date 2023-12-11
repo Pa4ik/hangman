@@ -211,22 +211,96 @@ const item18 = document?.querySelector(".item-18");
 const item19 = document?.querySelector(".item-19");
 const item20 = document?.querySelector(".item-20");
 
+  //кнопки 
+  const btn1Size = document?.querySelector(".btn-1-size");
+  const btn2Size = document?.querySelector(".btn-2-size");
+  const btn3Size = document?.querySelector(".btn-3-size");
+  const additivesBtn1 = document?.querySelector(".additives-btn1");
+  const additivesBtn2 = document?.querySelector(".additives-btn2");
+  const additivesBtn3 = document?.querySelector(".additives-btn3");
 
-function modalContent(index) {
-    modalImg.innerHTML = `<img class="modal-img-item" src="${products[index-1].img}">`;
-  descriptionTitle.innerHTML = `${products[index-1].name}`;
-  descriptionAbout.innerHTML = `${products[index-1].description}`;
-  btnTextItem1.innerHTML = `${products[index-1].sizes.s.size}`;
-  btnTextItem2.innerHTML = `${products[index-1].sizes.m.size}`;
-  btnTextItem3.innerHTML = `${products[index-1].sizes.l.size}`;
-  additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
-  additivesText2.innerHTML = `${products[index-1].additives[1].name}`;
-  additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
-  sizePrice.innerHTML = `
-      <div class="price-p">Total:</div>
-      <div class="price-p">$${products[index-1].price.toNumber + total}</div>`
-  }
+// суммы
+
+function totalPrice() {
+    let sum = 0;
   
+    // размера
+    if (btn1Size.classList.contains("btn-item-active")) {
+      sum += 0;
+    }
+    if (btn2Size.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (btn3Size.classList.contains("btn-item-active")) {
+      sum += 1.00;
+    }
+  
+    // добавки 
+    if (additivesBtn1.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (additivesBtn2.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (additivesBtn3.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    return sum;
+  }
+
+//размер
+ btn1Size.addEventListener("click" , () => {
+    btn1Size.classList.add("btn-item-active");
+    btn2Size.classList.remove("btn-item-active");
+    btn3Size.classList.remove("btn-item-active");
+ });
+ btn2Size.addEventListener("click" , () => {
+    btn1Size.classList.remove("btn-item-active");
+    btn2Size.classList.toggle("btn-item-active");
+    btn3Size.classList.remove("btn-item-active");
+ });
+ btn3Size.addEventListener("click" , () => {
+    btn1Size?.classList.remove("btn-item-active");
+    btn2Size?.classList.remove("btn-item-active");
+    btn3Size?.classList.add("btn-item-active");
+ });
+//добавки
+additivesBtn1.addEventListener("click" , () => {
+    additivesBtn1?.classList.toggle("btn-item-active");
+ });
+ additivesBtn2.addEventListener("click" , () => {
+    additivesBtn2?.classList.toggle("btn-item-active");
+ });
+ additivesBtn3.addEventListener("click" , () => {
+    additivesBtn3?.classList.toggle("btn-item-active");  
+ });
+
+
+function updateTotal() {
+    let total = totalPrice();
+    console.log(total);
+    otherFunction(total);
+    }
+    
+    function otherFunction(total) {
+    console.log("Total sum from other function:", total);
+    }
+    
+    function modalContent(index) {
+    modalImg.innerHTML =`<img class="modal-img-item" src="${products[index-1].img}">`;
+    descriptionTitle.innerHTML = `${products[index-1].name}`;
+    descriptionAbout.innerHTML = `${products[index-1].description}`;
+    btnTextItem1.innerHTML =` ${products[index-1].sizes.s.size}`;
+    btnTextItem2.innerHTML = `${products[index-1].sizes.m.size}`;
+    btnTextItem3.innerHTML = `${products[index-1].sizes.l.size}`;
+    additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
+    additivesText2.innerHTML =` ${products[index-1].additives[1].name}`;
+    additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
+    let updatedTotal = totalPrice();
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + updatedTotal}</div>`;
+    }
+
+
   item1?.addEventListener("click", () => {
     modalContent(1);
   });
@@ -287,77 +361,3 @@ function modalContent(index) {
   item20?.addEventListener("click", () => {
     modalContent(20);
   });
-
- 
-
-  //кнопки 
-  const btn1Size = document?.querySelector(".btn-1-size");
-  const btn2Size = document?.querySelector(".btn-2-size");
-  const btn3Size = document?.querySelector(".btn-3-size");
-  const additivesBtn1 = document?.querySelector(".additives-btn1");
-  const additivesBtn2 = document?.querySelector(".additives-btn2");
-  const additivesBtn3 = document?.querySelector(".additives-btn3");
-
-// суммы
-
-function totalPrice() {
-    let sum = 0;
-  
-    // размера
-    if (btn1Size.classList.contains("btn-item-active")) {
-      sum += 0;
-    }
-    if (btn2Size.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (btn3Size.classList.contains("btn-item-active")) {
-      sum += 1.00;
-    }
-  
-    // добавки 
-    if (additivesBtn1.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (additivesBtn2.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (additivesBtn3.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    console.log(sum)
-  }
-//размер
- btn1Size.addEventListener("click" , () => {
-    btn1Size.classList.add("btn-item-active");
-    btn2Size.classList.remove("btn-item-active");
-    btn3Size.classList.remove("btn-item-active");
-    totalPrice();
- });
- btn2Size.addEventListener("click" , () => {
-    btn1Size.classList.remove("btn-item-active");
-    btn2Size.classList.toggle("btn-item-active");
-    btn3Size.classList.remove("btn-item-active");
-    totalPrice();
- });
- btn3Size.addEventListener("click" , () => {
-    btn1Size?.classList.remove("btn-item-active");
-    btn2Size?.classList.remove("btn-item-active");
-    btn3Size?.classList.add("btn-item-active");
-    totalPrice();
- });
-//добавки
-additivesBtn1.addEventListener("click" , () => {
-    additivesBtn1?.classList.toggle("btn-item-active");
-    totalPrice();
- });
- additivesBtn2.addEventListener("click" , () => {
-    additivesBtn2?.classList.toggle("btn-item-active");
-    totalPrice();
- });
- additivesBtn3.addEventListener("click" , () => {
-    additivesBtn3?.classList.toggle("btn-item-active");
-    totalPrice();
- });
-
-
-
