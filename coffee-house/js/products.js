@@ -1,5 +1,4 @@
-
-[
+const product = [
   {
     "name": "Irish coffee",
     "description": "Fragrant black coffee with Jameson Irish whiskey and whipped milk",
@@ -700,3 +699,5 @@
     ]
   }
 ]
+
+export default product
