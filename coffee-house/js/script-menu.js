@@ -170,14 +170,21 @@ closeModalBtn.addEventListener("click" , () => {
         });
 
 
-        
-//изменяймыеблоки 
+   
+//блоки в меню
+// const menuItemImg = document?.querySelector(".menu-item-img");
+// const menuItemDescription = document?.querySelector(".description"); 
+// const menuItemPrice = document?.querySelector(".menu-item-price");     
+
+
+//изменяймыеблоки модалки 
 const modalImg = document?.querySelector(".modal-img");
 const descriptionTitle = document?.querySelector(".description-title");
 const descriptionAbout = document?.querySelector(".description-about");
 const sizePrice = document?.querySelector(".size-price");
 const itemBtnSize = document?.querySelector(".item-btn-size");
 const additives = document?.querySelector(".additives");
+
 
 
 //итемы
@@ -203,23 +210,30 @@ const item19 = document?.querySelector(".item-19");
 const item20 = document?.querySelector(".item-20");
 
 
+// function itemContent(ind) {
+//     menuItemImg.innerHTML = ` <img class="menu-img" src="${products[ind-1].img}">`;
+//     menuItemDescription.innerHTML = `<span class="menu-item-title">${products[ind-1].name}</span>;
+//     <span class="menu-item-description">${products[ind-1].description}</span>`;
+//     menuItemPrice.innerHTML = `$${products[ind-1].price}`;
+//   }
+
 function modalContent(index) {
     modalImg.innerHTML = `<img class="modal-img-item" src="${products[index-1].img}">`;
   descriptionTitle.innerHTML = `${products[index-1].name}`;
   descriptionAbout.innerHTML = `${products[index-1].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-item-active">
+  itemBtnSize.innerHTML = `<div class="btn-item-size btn-1-size btn-item-active">
               <div class="btn-back-size">
                   <p class="size-item">S</p>
               </div>
               <span class="btn-text">${products[index-1].sizes.s.size}</span>
           </div>
-          <div class="btn-item-size ">
+          <div class="btn-item-size btn-2-size">
               <div class="btn-back-size">
                   <p class="size-item">M</p>
               </div>
               <span class="btn-text">${products[index-1].sizes.m.size}</span>
           </div>
-          <div class="btn-item-size ">
+          <div class="btn-item-size btn-3-size">
               <div class="btn-back-size">
                   <p class="size-item">L</p>
               </div>
@@ -309,3 +323,44 @@ function modalContent(index) {
   item20?.addEventListener("click", () => {
     modalContent(20);
   });
+
+
+
+  
+  const btn1Size = document?.querySelector(".btn-1-size");
+  const btn2Size = document?.querySelector(".btn-2-size");
+  const btn3Size = document?.querySelector(".btn-3-size");
+
+
+  btn1Size.addEventListener("click" , () => {
+    console.log("ja 1")
+ });
+ btn2Size.addEventListener("click" , () => {
+    console.log("ja 2")
+ });
+ btn3Size.addEventListener("click" , () => {
+   console.log("ja 3")
+ });
+
+
+ window.addEventListener('click', function(event) {
+    console.log(event.target);
+});
+
+ btn1Size.addEventListener("click" , () => {
+    btn1Size.classList.add("btn-item-active");
+    btn2Size.classList.remove("btn-item-active");
+    btn3Size.classList.remove("btn-item-active");
+ });
+ btn2Size.addEventListener("click" , () => {
+    btn1Size.classList.remove("btn-item-active");
+    btn2Size.classList.toggle("btn-item-active");
+    btn3Size.classList.remove("btn-item-active");
+ });
+ btn3Size.addEventListener("click" , () => {
+    btn1Size?.classList.remove("btn-item-active");
+    btn2Size?.classList.remove("btn-item-active");
+    btn3Size?.classList.add("btn-item-active");
+ });
+
+

@@ -941,7 +941,7 @@ cursor: pointer;
      display: flex;
      max-width: 800px;
      height: max-content;
-     padding: 16px;
+    
      flex-direction: row;
      justify-content: center;
      align-items: flex-start;
@@ -952,6 +952,17 @@ cursor: pointer;
      right: 0;
      bottom: 0;
      margin: auto; 
+  }
+
+  .pading{
+    display: flex;
+    height: max-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 40px;
+    background: var(--background-body, #E1D4C9);
+   padding: 16px;
   }
 
   .modal-img{
@@ -970,10 +981,10 @@ cursor: pointer;
 
   .description-info{
      display: grid;
-     padding-left: 20px;
+     padding-left: 15px;
      flex-direction: column;
      align-items: flex-start;
-     gap: 20px;
+     gap: 15px;
      flex: 1 0 0;
   }
 
@@ -1016,7 +1027,10 @@ cursor: pointer;
    font-weight: 400;
    line-height: 150%; 
   }
-
+   
+  .additives{
+   gap:5px
+  }
 
   .btn-item-size{
    display: flex;
@@ -1027,7 +1041,7 @@ cursor: pointer;
    border-radius: 100px;
 border: 1px solid var(--border-light, #C1B6AD);
 transition: 0.5s;
-cursor: pointer;
+cursor: pointer; 
 }
 
 .btn-text{
@@ -1122,6 +1136,7 @@ border-top: 1px solid var(--border-light, #C1B6AD);
    line-height: 150%;
 }
 .item-btn-size{
+   gap: 5px;
    padding: 0;
 }
 @media (hover: hover) {
@@ -1208,3 +1223,4 @@ border-top: 1px solid var(--border-light, #C1B6AD);
    transform: none;
    overflow: hidden;
 }
+

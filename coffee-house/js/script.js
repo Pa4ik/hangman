@@ -154,8 +154,11 @@ if ('ontouchstart' in window) {
 
 
  // авто переключение слайдов
- setInterval(btnRightClick , 6000)
-
+ function autoNextSlide() {
+  setInterval(btnRightClick , 6000)
+ }
+ 
+ autoNextSlide()
 
 //Кнопки приложение(для красоты)
 const btnAppStore = document.querySelector('.app-store');
