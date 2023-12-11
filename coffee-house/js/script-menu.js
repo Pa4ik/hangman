@@ -3,6 +3,8 @@ const burger = document?.querySelector("[data-burger]");
 const nav = document?.querySelector("[data-nav]");
 const navigation = nav?.querySelectorAll("a");
 
+
+
 // откртие закрытие на бургер
 burger?.addEventListener("click" , () => {
    burger?.classList.toggle("burger--active");
@@ -156,4 +158,16 @@ closeModalBtn.addEventListener("click" , () => {
         document.documentElement.style.overflow = ''; 
       }
     });
-  
+
+    fetch('./js/products.json')
+    .then(response => {
+      return response.json();
+    })
+    .then(menuPorduct => console.log(menuPorduct));
+
+
+
+// const menuProducts = require('./products.json');
+//     console.log(menuProducts);
+
+
