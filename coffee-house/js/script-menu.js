@@ -170,13 +170,6 @@ closeModalBtn.addEventListener("click" , () => {
         });
 
 
-   
-//блоки в меню
-// const menuItemImg = document?.querySelector(".menu-item-img");
-// const menuItemDescription = document?.querySelector(".description"); 
-// const menuItemPrice = document?.querySelector(".menu-item-price");     
-
-
 //изменяймыеблоки модалки 
 const modalImg = document?.querySelector(".modal-img");
 const descriptionTitle = document?.querySelector(".description-title");
@@ -185,6 +178,15 @@ const sizePrice = document?.querySelector(".size-price");
 const itemBtnSize = document?.querySelector(".item-btn-size");
 const additives = document?.querySelector(".additives");
 
+//кнопки
+
+const btnTextItem1 = document?.querySelector(".btn-text-item1");
+const btnTextItem2 = document?.querySelector(".btn-text-item2");
+const btnTextItem3 = document?.querySelector(".btn-text-item3");
+
+const additivesText1 = document?.querySelector(".additives-text1");
+const additivesText2 = document?.querySelector(".additives-text2");
+const additivesText3 = document?.querySelector(".additives-text3");
 
 
 //итемы
@@ -210,57 +212,19 @@ const item19 = document?.querySelector(".item-19");
 const item20 = document?.querySelector(".item-20");
 
 
-// function itemContent(ind) {
-//     menuItemImg.innerHTML = ` <img class="menu-img" src="${products[ind-1].img}">`;
-//     menuItemDescription.innerHTML = `<span class="menu-item-title">${products[ind-1].name}</span>;
-//     <span class="menu-item-description">${products[ind-1].description}</span>`;
-//     menuItemPrice.innerHTML = `$${products[ind-1].price}`;
-//   }
-
 function modalContent(index) {
     modalImg.innerHTML = `<img class="modal-img-item" src="${products[index-1].img}">`;
   descriptionTitle.innerHTML = `${products[index-1].name}`;
   descriptionAbout.innerHTML = `${products[index-1].description}`;
-  itemBtnSize.innerHTML = `<div class="btn-item-size btn-1-size btn-item-active">
-              <div class="btn-back-size">
-                  <p class="size-item">S</p>
-              </div>
-              <span class="btn-text">${products[index-1].sizes.s.size}</span>
-          </div>
-          <div class="btn-item-size btn-2-size">
-              <div class="btn-back-size">
-                  <p class="size-item">M</p>
-              </div>
-              <span class="btn-text">${products[index-1].sizes.m.size}</span>
-          </div>
-          <div class="btn-item-size btn-3-size">
-              <div class="btn-back-size">
-                  <p class="size-item">L</p>
-              </div>
-              <span class="btn-text">${products[index-1].sizes.l.size}</span>
-          </div>`
-  additives.innerHTML = `
-       <div class="btn-item-size">
-          <div class="btn-back-size">
-              <p class="size-item">1</p>
-          </div>
-          <span class="btn-text">${products[index-1].additives[0].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">2</p>
-          </div>
-          <span class="btn-text">${products[index-1].additives[1].name}</span>
-      </div>
-      <div class="btn-item-size ">
-          <div class="btn-back-size">
-              <p class="size-item">3</p>
-          </div>
-          <span class="btn-text">${products[index-1].additives[2].name}</span>
-      </div>`   
+  btnTextItem1.innerHTML = `${products[index-1].sizes.s.size}`;
+  btnTextItem2.innerHTML = `${products[index-1].sizes.m.size}`;
+  btnTextItem3.innerHTML = `${products[index-1].sizes.l.size}`;
+  additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
+  additivesText2.innerHTML = `${products[index-1].additives[1].name}`;
+  additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
   sizePrice.innerHTML = `
       <div class="price-p">Total:</div>
-      <div class="price-p">$${products[index-1].price}</div>`
+      <div class="price-p">$${products[index-1].price.toNumber + total}</div>`
   }
   
   item1?.addEventListener("click", () => {
@@ -324,43 +288,76 @@ function modalContent(index) {
     modalContent(20);
   });
 
+ 
 
-
-  
+  //кнопки 
   const btn1Size = document?.querySelector(".btn-1-size");
   const btn2Size = document?.querySelector(".btn-2-size");
   const btn3Size = document?.querySelector(".btn-3-size");
+  const additivesBtn1 = document?.querySelector(".additives-btn1");
+  const additivesBtn2 = document?.querySelector(".additives-btn2");
+  const additivesBtn3 = document?.querySelector(".additives-btn3");
 
+// суммы
 
-  btn1Size.addEventListener("click" , () => {
-    console.log("ja 1")
- });
- btn2Size.addEventListener("click" , () => {
-    console.log("ja 2")
- });
- btn3Size.addEventListener("click" , () => {
-   console.log("ja 3")
- });
-
-
- window.addEventListener('click', function(event) {
-    console.log(event.target);
-});
-
+function totalPrice() {
+    let sum = 0;
+  
+    // размера
+    if (btn1Size.classList.contains("btn-item-active")) {
+      sum += 0;
+    }
+    if (btn2Size.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (btn3Size.classList.contains("btn-item-active")) {
+      sum += 1.00;
+    }
+  
+    // добавки 
+    if (additivesBtn1.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (additivesBtn2.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    if (additivesBtn3.classList.contains("btn-item-active")) {
+      sum += 0.50;
+    }
+    console.log(sum)
+  }
+//размер
  btn1Size.addEventListener("click" , () => {
     btn1Size.classList.add("btn-item-active");
     btn2Size.classList.remove("btn-item-active");
     btn3Size.classList.remove("btn-item-active");
+    totalPrice();
  });
  btn2Size.addEventListener("click" , () => {
     btn1Size.classList.remove("btn-item-active");
     btn2Size.classList.toggle("btn-item-active");
     btn3Size.classList.remove("btn-item-active");
+    totalPrice();
  });
  btn3Size.addEventListener("click" , () => {
     btn1Size?.classList.remove("btn-item-active");
     btn2Size?.classList.remove("btn-item-active");
     btn3Size?.classList.add("btn-item-active");
+    totalPrice();
  });
+//добавки
+additivesBtn1.addEventListener("click" , () => {
+    additivesBtn1?.classList.toggle("btn-item-active");
+    totalPrice();
+ });
+ additivesBtn2.addEventListener("click" , () => {
+    additivesBtn2?.classList.toggle("btn-item-active");
+    totalPrice();
+ });
+ additivesBtn3.addEventListener("click" , () => {
+    additivesBtn3?.classList.toggle("btn-item-active");
+    totalPrice();
+ });
+
 
 
