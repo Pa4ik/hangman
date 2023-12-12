@@ -35,7 +35,17 @@ window.addEventListener("click", function(event){
     } 
   });
 
+// При изменении размеров экрана для бугрега 
+function burgerSize() {
+  if (window.innerWidth > 768) {
+    burger?.classList.remove("burger--active");
+      nav?.classList.remove("navigation-visibl"); 
+      document.body.classList.remove("hidden-overflow")  
+  } else {
+  }
+}
 
+window.addEventListener("resize", burgerSize);
 
   // Переключение блоков 
   const btnMenuCoffee = document.querySelector(".menu-item-1");
@@ -140,12 +150,24 @@ itemMenu.forEach(item => {
 closeModalBtn.addEventListener("click" , () => {
   modalMenu.classList.remove("menu-active");
   document.documentElement.style.overflow = '';
+  btn1Size.classList.add("btn-item-active");
+  btn2Size.classList.remove("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  additivesBtn1?.classList.remove("btn-item-active");
+  additivesBtn2?.classList.remove("btn-item-active");
+  additivesBtn3?.classList.remove("btn-item-active");
 });
 
     window.addEventListener ("keydown", function(event){
       if (event.keyCode === 27){
         modalMenu?.classList.remove("menu-active")
         document.documentElement.style.overflow = '';
+        btn1Size.classList.add("btn-item-active");
+        btn2Size.classList.remove("btn-item-active");
+        btn3Size.classList.remove("btn-item-active");
+        additivesBtn1?.classList.remove("btn-item-active");
+        additivesBtn2?.classList.remove("btn-item-active");
+        additivesBtn3?.classList.remove("btn-item-active");
       }
     })
   
@@ -153,6 +175,12 @@ closeModalBtn.addEventListener("click" , () => {
       if (event.target === modalMenu) {
         modalMenu?.classList.remove('menu-active');
         document.documentElement.style.overflow = ''; 
+        btn1Size.classList.add("btn-item-active");
+        btn2Size.classList.remove("btn-item-active");
+        btn3Size.classList.remove("btn-item-active");
+        additivesBtn1?.classList.remove("btn-item-active");
+        additivesBtn2?.classList.remove("btn-item-active");
+        additivesBtn3?.classList.remove("btn-item-active");
       }
     });
 
@@ -220,75 +248,52 @@ const item20 = document?.querySelector(".item-20");
   const additivesBtn3 = document?.querySelector(".additives-btn3");
 
 // суммы
-
 function totalPrice() {
-    let sum = 0;
-  
-    // размера
-    if (btn1Size.classList.contains("btn-item-active")) {
-      sum += 0;
-    }
-    if (btn2Size.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (btn3Size.classList.contains("btn-item-active")) {
-      sum += 1.00;
-    }
-  
-    // добавки 
-    if (additivesBtn1.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (additivesBtn2.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    if (additivesBtn3.classList.contains("btn-item-active")) {
-      sum += 0.50;
-    }
-    return sum;
+  let total = 0;
+  // размера
+  if (btn1Size.classList.contains("btn-item-active")) {
+    total += 0;
   }
-
-//размер
- btn1Size.addEventListener("click" , () => {
-    btn1Size.classList.add("btn-item-active");
-    btn2Size.classList.remove("btn-item-active");
-    btn3Size.classList.remove("btn-item-active");
- });
- btn2Size.addEventListener("click" , () => {
-    btn1Size.classList.remove("btn-item-active");
-    btn2Size.classList.toggle("btn-item-active");
-    btn3Size.classList.remove("btn-item-active");
- });
- btn3Size.addEventListener("click" , () => {
-    btn1Size?.classList.remove("btn-item-active");
-    btn2Size?.classList.remove("btn-item-active");
-    btn3Size?.classList.add("btn-item-active");
- });
-//добавки
-additivesBtn1.addEventListener("click" , () => {
-    additivesBtn1?.classList.toggle("btn-item-active");
- });
- additivesBtn2.addEventListener("click" , () => {
-    additivesBtn2?.classList.toggle("btn-item-active");
- });
- additivesBtn3.addEventListener("click" , () => {
-    additivesBtn3?.classList.toggle("btn-item-active");  
- });
+  if (btn2Size.classList.contains("btn-item-active")) {
+    total += 0.50;
+  }
+  if (btn3Size.classList.contains("btn-item-active")) {
+    total += 1.00;
+  }
+  // добавки 
+  if (additivesBtn1.classList.contains("btn-item-active")) {
+    total += 0.50;
+  }
+  if (additivesBtn2.classList.contains("btn-item-active")) {
+    total += 0.50;
+  }
+  if (additivesBtn3.classList.contains("btn-item-active")) {
+    total += 0.50;
+  }
+  if (total === 0) {
+    return 0;
+  }
+  
+  return total;
+}
 
 
-function updateTotal() {
-    let total = totalPrice();
-    console.log(total);
-    otherFunction(total);
-    }
-    
-    function otherFunction(total) {
-    console.log("Total sum from other function:", total);
-    }
-    
-    function modalContent(index) {
-    modalImg.innerHTML =`<img class="modal-img-item" src="${products[index-1].img}">`;
+let sum = 0;
+
+function updateTotalPrice() {
+  const total = sum + totalPrice();
+  const item = localStorage.getItem('item');
+  
+  if (item >= 1 && item <= 20) {
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${total + products[item - 1].price}</div>`;
+  } else {
+  }
+}
+ 
+
+function modalContent(index) { 
     descriptionTitle.innerHTML = `${products[index-1].name}`;
+    modalImg.innerHTML =`<img class="modal-img-item" src="${products[index-1].img}">`;
     descriptionAbout.innerHTML = `${products[index-1].description}`;
     btnTextItem1.innerHTML =` ${products[index-1].sizes.s.size}`;
     btnTextItem2.innerHTML = `${products[index-1].sizes.m.size}`;
@@ -296,68 +301,282 @@ function updateTotal() {
     additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
     additivesText2.innerHTML =` ${products[index-1].additives[1].name}`;
     additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
-    let updatedTotal = totalPrice();
-    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + updatedTotal}</div>`;
-    }
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price}</div>`; 
+}
+
+//размер
+btn1Size.addEventListener("click", () => {
+  btn1Size.classList.add("btn-item-active");
+  btn2Size.classList.remove("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  updateTotalPrice();
+});
+
+btn2Size.addEventListener("click", () => {
+  btn1Size.classList.remove("btn-item-active");
+  btn2Size.classList.add("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  updateTotalPrice();
+});
+
+btn3Size.addEventListener("click", () => {
+  btn1Size?.classList.remove("btn-item-active");
+  btn2Size?.classList.remove("btn-item-active");
+  btn3Size?.classList.add("btn-item-active");
+  updateTotalPrice();
+});
+
+additivesBtn1.addEventListener("click", () => {
+  additivesBtn1?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
+
+additivesBtn2.addEventListener("click", () => {
+  additivesBtn2?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
+
+additivesBtn3.addEventListener("click", () => {
+  additivesBtn3?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
 
 
-  item1?.addEventListener("click", () => {
-    modalContent(1);
-  });
-  item2?.addEventListener("click", () => {
-    modalContent(2);
-  });
-  item3?.addEventListener("click", () => {
-    modalContent(3);
-  });
-  item4?.addEventListener("click", () => {
-    modalContent(4);
-  });
-  item5?.addEventListener("click", () => {
-    modalContent(5);
-  });
-  item6?.addEventListener("click", () => {
-    modalContent(6);
-  });
-  item7?.addEventListener("click", () => {
-    modalContent(7);
-  });
-  item8?.addEventListener("click", () => {
-    modalContent(8);
-  });
-  item9?.addEventListener("click", () => {
-    modalContent(9);
-  });
-  item10?.addEventListener("click", () => {
-    modalContent(10);
-  });
-  item11?.addEventListener("click", () => {
-    modalContent(11);
-  });
-  item12?.addEventListener("click", () => {
-    modalContent(12);
-  });
-  item13?.addEventListener("click", () => {
-    modalContent(13);
-  });
-  item14?.addEventListener("click", () => {
-    modalContent(14);
-  });
-  item15?.addEventListener("click", () => {
-    modalContent(15);
-  });
-  item16?.addEventListener("click", () => {
-    modalContent(16);
-  });
-  item17?.addEventListener("click", () => {
-    modalContent(17);
-  });
-  item18?.addEventListener("click", () => {
-    modalContent(18);
-  });
-  item19?.addEventListener("click", () => {
-    modalContent(19);
-  });
-  item20?.addEventListener("click", () => {
-    modalContent(20);
-  });
+item1?.addEventListener("click", () => {
+localStorage.setItem('item', 1); 
+modalContent(1);
+});
+item2?.addEventListener("click", () => {
+modalContent(2);
+localStorage.setItem('item', 2);  
+});
+item3?.addEventListener("click", () => {
+  localStorage.setItem('item', 3); 
+modalContent(3);
+});
+item4?.addEventListener("click", () => {
+  localStorage.setItem('item', 4); 
+modalContent(4);
+});
+item5?.addEventListener("click", () => {
+  localStorage.setItem('item', 5); 
+modalContent(5);
+});
+item6?.addEventListener("click", () => {
+  localStorage.setItem('item', 6); 
+modalContent(6);
+});
+item7?.addEventListener("click", () => {
+  localStorage.setItem('item', 7);  
+modalContent(7);
+});
+item8?.addEventListener("click", () => {
+  localStorage.setItem('item', 8); 
+modalContent(8);
+});
+item9?.addEventListener("click", () => {
+  localStorage.setItem('item', 9); 
+modalContent(9);
+});
+item10?.addEventListener("click", () => {
+  localStorage.setItem('item', 10); 
+modalContent(10);
+});
+item11?.addEventListener("click", () => {
+  localStorage.setItem('item', 11); 
+modalContent(11);
+});
+item12?.addEventListener("click", () => {
+  localStorage.setItem('item', 12); 
+modalContent(12);
+});
+item13?.addEventListener("click", () => {
+  localStorage.setItem('item', 13); 
+modalContent(13);
+});
+item14?.addEventListener("click", () => {
+  localStorage.setItem('item', 14); 
+modalContent(14);
+});
+item15?.addEventListener("click", () => {
+  localStorage.setItem('item', 15); 
+modalContent(15);
+});
+item16?.addEventListener("click", () => {
+  localStorage.setItem('item', 16); 
+modalContent(16);
+});
+item17?.addEventListener("click", () => {
+  localStorage.setItem('item', 17); 
+modalContent(17);
+});
+item18?.addEventListener("click", () => {
+  localStorage.setItem('item', 18); 
+modalContent(18);
+});
+item19?.addEventListener("click", () => {
+  localStorage.setItem('item', 19); 
+modalContent(19);
+});
+item20?.addEventListener("click", () => {
+  localStorage.setItem('item', 20); 
+modalContent(20);
+});
+
+
+
+
+
+
+
+
+// function totalPrice() {
+//   let sum = 0;
+//   // размера
+//   if (btn1Size.classList.contains("btn-item-active")) {
+//     sum += 0;
+//   }
+//   if (btn2Size.classList.contains("btn-item-active")) {
+//     sum += 0.50;
+//   }
+//   if (btn3Size.classList.contains("btn-item-active")) {
+//     sum += 1.00;
+//   }
+//   // добавки 
+//   if (additivesBtn1.classList.contains("btn-item-active")) {
+//     sum += 0.50;
+//   }
+//   if (additivesBtn2.classList.contains("btn-item-active")) {
+//     sum += 0.50;
+//   }
+//   if (additivesBtn3.classList.contains("btn-item-active")) {
+//     sum += 0.50;
+//   }
+//   if (sum === 0) {
+//     return 0;
+//   }
+  
+//   return sum;
+// }
+
+// function updateTotal() {
+//   const total = totalPrice();
+//   console.log(total);
+//   sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + total}</div>`;
+//   } 
+
+
+// function modalContent(index) {
+//     descriptionTitle.innerHTML = `${products[index-1].name}`;
+//     modalImg.innerHTML =`<img class="modal-img-item" src="${products[index-1].img}">`;
+//     descriptionAbout.innerHTML = `${products[index-1].description}`;
+//     btnTextItem1.innerHTML =` ${products[index-1].sizes.s.size}`;
+//     btnTextItem2.innerHTML = `${products[index-1].sizes.m.size}`;
+//     btnTextItem3.innerHTML = `${products[index-1].sizes.l.size}`;
+//     additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
+//     additivesText2.innerHTML =` ${products[index-1].additives[1].name}`;
+//     additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
+//     sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + updateTotal()}</div>`;
+//   function updateTotal() {
+//     const total = totalPrice();
+//     console.log(total);
+//     sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + total}</div>`;
+//     }     
+// }
+
+// //размер
+// btn1Size.addEventListener("click" , () => {
+// btn1Size.classList.add("btn-item-active");
+// btn2Size.classList.remove("btn-item-active");
+// btn3Size.classList.remove("btn-item-active");
+// updateTotal();
+// });
+// btn2Size.addEventListener("click" , () => {
+// btn1Size.classList.remove("btn-item-active");
+// btn2Size.classList.toggle("btn-item-active");
+// btn3Size.classList.remove("btn-item-active");
+// updateTotal();;
+// });
+// btn3Size.addEventListener("click" , () => {
+// btn1Size?.classList.remove("btn-item-active");
+// btn2Size?.classList.remove("btn-item-active");
+// btn3Size?.classList.add("btn-item-active");
+// updateTotal();
+// });
+// //добавки
+// additivesBtn1.addEventListener("click" , () => {
+// additivesBtn1?.classList.toggle("btn-item-active");
+// updateTotal(); 
+// });
+
+// additivesBtn2.addEventListener("click" , () => {
+// additivesBtn2?.classList.toggle("btn-item-active");
+// updateTotal(); 
+// });
+
+// additivesBtn3.addEventListener("click" , () => {
+// additivesBtn3?.classList.toggle("btn-item-active");
+// updateTotal(); 
+// });
+
+
+// item1?.addEventListener("click", () => {
+// modalContent(1);
+// });
+// item2?.addEventListener("click", () => {
+// modalContent(2);
+// });
+// item3?.addEventListener("click", () => {
+// modalContent(3);
+// });
+// item4?.addEventListener("click", () => {
+// modalContent(4);
+// });
+// item5?.addEventListener("click", () => {
+// modalContent(5);
+// });
+// item6?.addEventListener("click", () => {
+// modalContent(6);
+// });
+// item7?.addEventListener("click", () => {
+// modalContent(7);
+// });
+// item8?.addEventListener("click", () => {
+// modalContent(8);
+// });
+// item9?.addEventListener("click", () => {
+// modalContent(9);
+// });
+// item10?.addEventListener("click", () => {
+// modalContent(10);
+// });
+// item11?.addEventListener("click", () => {
+// modalContent(11);
+// });
+// item12?.addEventListener("click", () => {
+// modalContent(12);
+// });
+// item13?.addEventListener("click", () => {
+// modalContent(13);
+// });
+// item14?.addEventListener("click", () => {
+// modalContent(14);
+// });
+// item15?.addEventListener("click", () => {
+// modalContent(15);
+// });
+// item16?.addEventListener("click", () => {
+// modalContent(16);
+// });
+// item17?.addEventListener("click", () => {
+// modalContent(17);
+// });
+// item18?.addEventListener("click", () => {
+// modalContent(18);
+// });
+// item19?.addEventListener("click", () => {
+// modalContent(19);
+// });
+// item20?.addEventListener("click", () => {
+// modalContent(20);
+// });
