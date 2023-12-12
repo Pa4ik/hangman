@@ -230,43 +230,50 @@ const item20 = document?.querySelector(".item-20");
   const additivesBtn3 = document?.querySelector(".additives-btn3");
 
 // суммы
-
 function totalPrice() {
-  let sum = 0;
+  let total = 0;
   // размера
   if (btn1Size.classList.contains("btn-item-active")) {
-    sum += 0;
+    total += 0;
   }
   if (btn2Size.classList.contains("btn-item-active")) {
-    sum += 0.50;
+    total += 0.50;
   }
   if (btn3Size.classList.contains("btn-item-active")) {
-    sum += 1.00;
+    total += 1.00;
   }
   // добавки 
   if (additivesBtn1.classList.contains("btn-item-active")) {
-    sum += 0.50;
+    total += 0.50;
   }
   if (additivesBtn2.classList.contains("btn-item-active")) {
-    sum += 0.50;
+    total += 0.50;
   }
   if (additivesBtn3.classList.contains("btn-item-active")) {
-    sum += 0.50;
+    total += 0.50;
   }
-  if (sum === 0) {
+  if (total === 0) {
     return 0;
   }
   
-  return sum;
+  return total;
 }
 
 
-function modalContent(index) {
-  function updateTotal() {
-    const total = totalPrice();
-    console.log(total);
-    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price + total}</div>`;
-    }  
+let sum = 0;
+
+function updateTotalPrice() {
+  const total = sum + totalPrice();
+  const item = localStorage.getItem('item');
+  
+  if (item >= 1 && item <= 20) {
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${total + products[item - 1].price}</div>`;
+  } else {
+  }
+}
+ 
+
+function modalContent(index) { 
     descriptionTitle.innerHTML = `${products[index-1].name}`;
     modalImg.innerHTML =`<img class="modal-img-item" src="${products[index-1].img}">`;
     descriptionAbout.innerHTML = `${products[index-1].description}`;
@@ -276,103 +283,124 @@ function modalContent(index) {
     additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
     additivesText2.innerHTML =` ${products[index-1].additives[1].name}`;
     additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
-    updateTotal()   
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price}</div>`; 
 }
 
 //размер
-btn1Size.addEventListener("click" , () => {
-btn1Size.classList.add("btn-item-active");
-btn2Size.classList.remove("btn-item-active");
-btn3Size.classList.remove("btn-item-active");
-updateTotal();
-});
-btn2Size.addEventListener("click" , () => {
-btn1Size.classList.remove("btn-item-active");
-btn2Size.classList.toggle("btn-item-active");
-btn3Size.classList.remove("btn-item-active");
-updateTotal();;
-});
-btn3Size.addEventListener("click" , () => {
-btn1Size?.classList.remove("btn-item-active");
-btn2Size?.classList.remove("btn-item-active");
-btn3Size?.classList.add("btn-item-active");
-updateTotal();
-});
-//добавки
-additivesBtn1.addEventListener("click" , () => {
-additivesBtn1?.classList.toggle("btn-item-active");
-updateTotal(); 
+btn1Size.addEventListener("click", () => {
+  btn1Size.classList.add("btn-item-active");
+  btn2Size.classList.remove("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  updateTotalPrice();
 });
 
-additivesBtn2.addEventListener("click" , () => {
-additivesBtn2?.classList.toggle("btn-item-active");
-updateTotal(); 
+btn2Size.addEventListener("click", () => {
+  btn1Size.classList.remove("btn-item-active");
+  btn2Size.classList.add("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  updateTotalPrice();
 });
 
-additivesBtn3.addEventListener("click" , () => {
-additivesBtn3?.classList.toggle("btn-item-active");
-updateTotal(); 
+btn3Size.addEventListener("click", () => {
+  btn1Size?.classList.remove("btn-item-active");
+  btn2Size?.classList.remove("btn-item-active");
+  btn3Size?.classList.add("btn-item-active");
+  updateTotalPrice();
 });
 
+additivesBtn1.addEventListener("click", () => {
+  additivesBtn1?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
+
+additivesBtn2.addEventListener("click", () => {
+  additivesBtn2?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
+
+additivesBtn3.addEventListener("click", () => {
+  additivesBtn3?.classList.toggle("btn-item-active");
+  updateTotalPrice();
+});
 
 item1?.addEventListener("click", () => {
+localStorage.setItem('item', 1); 
 modalContent(1);
 });
 item2?.addEventListener("click", () => {
 modalContent(2);
+localStorage.setItem('item', 2);  
 });
 item3?.addEventListener("click", () => {
+  localStorage.setItem('item', 3); 
 modalContent(3);
 });
 item4?.addEventListener("click", () => {
+  localStorage.setItem('item', 4); 
 modalContent(4);
 });
 item5?.addEventListener("click", () => {
+  localStorage.setItem('item', 5); 
 modalContent(5);
 });
 item6?.addEventListener("click", () => {
+  localStorage.setItem('item', 6); 
 modalContent(6);
 });
 item7?.addEventListener("click", () => {
+  localStorage.setItem('item', 7);  
 modalContent(7);
 });
 item8?.addEventListener("click", () => {
+  localStorage.setItem('item', 8); 
 modalContent(8);
 });
 item9?.addEventListener("click", () => {
+  localStorage.setItem('item', 9); 
 modalContent(9);
 });
 item10?.addEventListener("click", () => {
+  localStorage.setItem('item', 10); 
 modalContent(10);
 });
 item11?.addEventListener("click", () => {
+  localStorage.setItem('item', 11); 
 modalContent(11);
 });
 item12?.addEventListener("click", () => {
+  localStorage.setItem('item', 12); 
 modalContent(12);
 });
 item13?.addEventListener("click", () => {
+  localStorage.setItem('item', 13); 
 modalContent(13);
 });
 item14?.addEventListener("click", () => {
+  localStorage.setItem('item', 14); 
 modalContent(14);
 });
 item15?.addEventListener("click", () => {
+  localStorage.setItem('item', 15); 
 modalContent(15);
 });
 item16?.addEventListener("click", () => {
+  localStorage.setItem('item', 16); 
 modalContent(16);
 });
 item17?.addEventListener("click", () => {
+  localStorage.setItem('item', 17); 
 modalContent(17);
 });
 item18?.addEventListener("click", () => {
+  localStorage.setItem('item', 18); 
 modalContent(18);
 });
 item19?.addEventListener("click", () => {
+  localStorage.setItem('item', 19); 
 modalContent(19);
 });
 item20?.addEventListener("click", () => {
+  localStorage.setItem('item', 20); 
 modalContent(20);
 });
 
