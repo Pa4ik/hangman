@@ -33,6 +33,18 @@ window.addEventListener("click", function(event){
     } 
   });
 
+  // При изменении размеров экрана для бугрега 
+function burgerSize() {
+  if (window.innerWidth > 768) {
+    burger?.classList.remove("burger--active");
+      nav?.classList.remove("navigation-visibl"); 
+      document.body.classList.remove("hidden-overflow")  
+  } else {
+  }
+}
+
+window.addEventListener("resize", burgerSize);
+
   // SLIDER
  const btnLeftSwiper = document.querySelector(".slider-left")
  const btnRightSwiper = document.querySelector(".slider-right")
