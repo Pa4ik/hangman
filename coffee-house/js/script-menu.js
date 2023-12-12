@@ -150,12 +150,24 @@ itemMenu.forEach(item => {
 closeModalBtn.addEventListener("click" , () => {
   modalMenu.classList.remove("menu-active");
   document.documentElement.style.overflow = '';
+  btn1Size.classList.add("btn-item-active");
+  btn2Size.classList.remove("btn-item-active");
+  btn3Size.classList.remove("btn-item-active");
+  additivesBtn1?.classList.remove("btn-item-active");
+  additivesBtn2?.classList.remove("btn-item-active");
+  additivesBtn3?.classList.remove("btn-item-active");
 });
 
     window.addEventListener ("keydown", function(event){
       if (event.keyCode === 27){
         modalMenu?.classList.remove("menu-active")
         document.documentElement.style.overflow = '';
+        btn1Size.classList.add("btn-item-active");
+        btn2Size.classList.remove("btn-item-active");
+        btn3Size.classList.remove("btn-item-active");
+        additivesBtn1?.classList.remove("btn-item-active");
+        additivesBtn2?.classList.remove("btn-item-active");
+        additivesBtn3?.classList.remove("btn-item-active");
       }
     })
   
@@ -163,6 +175,12 @@ closeModalBtn.addEventListener("click" , () => {
       if (event.target === modalMenu) {
         modalMenu?.classList.remove('menu-active');
         document.documentElement.style.overflow = ''; 
+        btn1Size.classList.add("btn-item-active");
+        btn2Size.classList.remove("btn-item-active");
+        btn3Size.classList.remove("btn-item-active");
+        additivesBtn1?.classList.remove("btn-item-active");
+        additivesBtn2?.classList.remove("btn-item-active");
+        additivesBtn3?.classList.remove("btn-item-active");
       }
     });
 
@@ -323,6 +341,7 @@ additivesBtn3.addEventListener("click", () => {
   updateTotalPrice();
 });
 
+
 item1?.addEventListener("click", () => {
 localStorage.setItem('item', 1); 
 modalContent(1);
@@ -403,21 +422,6 @@ item20?.addEventListener("click", () => {
   localStorage.setItem('item', 20); 
 modalContent(20);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
