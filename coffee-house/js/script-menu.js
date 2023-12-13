@@ -285,11 +285,13 @@ function updateTotalPrice() {
   const item = localStorage.getItem('item');
   
   if (item >= 1 && item <= 20) {
-    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${total + products[item - 1].price}</div>`;
+    const lastTotal = total + products[item - 1].price
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${lastTotal.toFixed(2)}</div>`;
   } else {
   }
 }
- 
+
+
 
 function modalContent(index) { 
     descriptionTitle.innerHTML = `${products[index-1].name}`;
@@ -301,7 +303,7 @@ function modalContent(index) {
     additivesText1.innerHTML = `${products[index-1].additives[0].name}`;
     additivesText2.innerHTML =` ${products[index-1].additives[1].name}`;
     additivesText3.innerHTML = `${products[index-1].additives[2].name}`;
-    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price}</div>`; 
+    sizePrice.innerHTML = `<div class="price-p">Total:</div> <div class="price-p">$${products[index-1].price.toFixed(2)}</div>`; 
 }
 
 //размер
