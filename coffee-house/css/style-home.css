@@ -360,13 +360,28 @@ line-height: 105%;
    background: var(--border-dark, #665F55);
 }
 
-.active-peg{
-  
+/* .active-peg{
       width: 40px;
       height: 4px;
       border-radius: 100px;
       background-color: #665F55;
 
+} */
+
+.progress-peg,
+.progress-peg2,
+.progress-peg3{
+   display: none;
+   margin: auto;
+   height: 4px;
+   position: absolute;
+   background:#665F55;
+   border-radius: 12px;
+   overflow: hidden;
+}
+
+.progress-active{
+   display: block;
 }
 
 /* about */
