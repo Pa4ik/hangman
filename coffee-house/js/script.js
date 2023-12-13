@@ -53,27 +53,45 @@ window.addEventListener("resize", burgerSize);
  const peg2 = document.querySelector(".peg2")
  const peg3 = document.querySelector(".peg3")
 
+  // пегинация
+  const progressPeg = document.querySelector('.progress-peg');
+  const progressPeg2 = document.querySelector('.progress-peg2');
+  const progressPeg3 = document.querySelector('.progress-peg3');
 
- // кнопки 
+ // кнопки и переключение я слайдера 
  sliderImg.style.right = '0%';
 
  function btnRightClick() {
-   if (sliderImg.style.right === '0%')
-    { sliderImg.style.right = '100%';
-     peg2.classList.add("active-peg");
-      peg1.classList.remove("active-peg"); 
-      peg3.classList.remove("active-peg"); 
-    } else if (sliderImg.style.right === '100%') { 
-      sliderImg.style.right = '200%'; 
-      peg3.classList.add("active-peg"); 
-      peg1.classList.remove("active-peg"); 
-      peg2.classList.remove("active-peg"); 
-    } else { sliderImg.style.right = '0%'; 
-    peg1.classList.add("active-peg"); 
-    peg2.classList.remove("active-peg"); 
-    peg3.classList.remove("active-peg"); 
-  } }
- btnRightSwiper.addEventListener('click', btnRightClick);
+  if (sliderImg.style.right === '0%') {
+      sliderImg.style.right = '100%';
+      peg2.classList.add("active-peg");
+      peg1.classList.remove("active-peg");
+      peg3.classList.remove("active-peg");
+      progressPeg.classList.remove("progress-active");
+      progressPeg2.classList.add("progress-active");
+      progressPeg3.classList.remove("progress-active");
+      upProgress2()
+  } else if (sliderImg.style.right === '100%') {
+      sliderImg.style.right = '200%';
+      peg3.classList.add("active-peg");
+      peg1.classList.remove("active-peg");
+      peg2.classList.remove("active-peg");
+      progressPeg.classList.remove("progress-active");
+      progressPeg2.classList.remove("progress-active");
+      progressPeg3.classList.add("progress-active");
+      upProgress3()
+  } else {
+      sliderImg.style.right = '0%';
+      peg1.classList.add("active-peg");
+      peg2.classList.remove("active-peg");
+      peg3.classList.remove("active-peg");
+      progressPeg.classList.add("progress-active");
+      progressPeg2.classList.remove("progress-active");
+      progressPeg3.classList.remove("progress-active");
+      upProgress()
+  }
+}
+btnRightSwiper.addEventListener('click', btnRightClick);
 
 
 btnLeftSwiper.addEventListener('click', () => { 
@@ -81,20 +99,106 @@ btnLeftSwiper.addEventListener('click', () => {
      sliderImg.style.right = '200%';
      peg3.classList.add("active-peg"); 
      peg1.classList.remove("active-peg");
-     peg2.classList.remove("active-peg"); 
+     peg2.classList.remove("active-peg");
+     progressPeg.classList.remove("progress-active");
+      progressPeg2.classList.remove("progress-active");
+      progressPeg3.classList.add("progress-active");
+      upProgress3()
    } else if (sliderImg.style.right === '200%') { 
      sliderImg.style.right = '100%';
      peg2.classList.add("active-peg"); 
      peg1.classList.remove("active-peg"); 
-     peg3.classList.remove("active-peg"); 
+     peg3.classList.remove("active-peg");
+     progressPeg.classList.remove("progress-active");
+      progressPeg2.classList.add("progress-active");
+      progressPeg3.classList.remove("progress-active");
+      upProgress2()
    } else { 
      sliderImg.style.right = '0%'; 
      peg1.classList.add("active-peg"); 
      peg2.classList.remove("active-peg"); 
      peg3.classList.remove("active-peg");
+     progressPeg.classList.add("progress-active");
+      progressPeg2.classList.remove("progress-active");
+      progressPeg3.classList.remove("progress-active");
+      upProgress()
    } 
  });
  
+ //заполнение пегинации и автопереключение 
+ let interval = null;
+ let width = 0;
+
+ function upProgress() {
+  if (interval !== null) {
+    clearInterval(interval);
+    width = 0;
+  }
+  if (!progressPeg.classList.contains('progress-active')) {
+    progressPeg.style.width = '0px';
+    return;
+  }
+  const lastWidth = 40;
+  const time = 6000;
+  const fill = lastWidth / (time / 100);
+
+  interval = setInterval(() => {
+    width += fill;
+    progressPeg.style.width = `${width}px`;
+    if (width >= lastWidth) {
+      clearInterval(interval);
+      btnRightClick();
+    }
+  } , 100 );
+}
+function upProgress2() {
+  if (interval !== null) {
+    clearInterval(interval);
+    width = 0;
+  }
+  if (!progressPeg2.classList.contains('progress-active')) {
+    progressPeg2.style.width = '0px';
+    return;
+  }
+  const lastWidth = 40;
+  const time = 6000;
+  const fill = lastWidth / (time / 100);
+
+  interval = setInterval(() => {
+    width += fill;
+    progressPeg2.style.width = `${width}px`;
+    if (width >= lastWidth) {
+      clearInterval(interval);
+      btnRightClick();
+    }
+  }, 100);
+}
+function upProgress3() {
+  if (interval !== null) {
+    clearInterval(interval);
+    width = 0;
+  }
+  if (!progressPeg3.classList.contains('progress-active')) {
+    progressPeg3.style.width = '0px';
+    return;
+  }
+  const lastWidth = 40;
+  const time = 6000;
+  const fill = lastWidth / (time / 100);
+
+  interval = setInterval(() => {
+    width += fill;
+    progressPeg3.style.width = `${width}px`;
+    if (width >= lastWidth) {
+      clearInterval(interval);
+      btnRightClick()
+    }
+  }, 100);
+}
+//вызово функции при загрузки страниццы 
+window.addEventListener('load', () => {
+  upProgress()
+});
 
  // мышкой 
  let mouseClick = false;
@@ -150,7 +254,6 @@ btnLeftSwiper.addEventListener('click', () => {
    x2 = evet.changedTouches[0].clientX;
    touchSwiper();
  }
- 
  sliderImg.addEventListener('touchstart', touchStart, false);        
  sliderImg.addEventListener('touchend', touchEnd, false);
 
@@ -165,13 +268,6 @@ if ('ontouchstart' in window) {
 }
 
 
- // авто переключение слайдов
- function autoNextSlide() {
-  setInterval(btnRightClick , 6000)
- }
- 
- autoNextSlide()
-
 //Кнопки приложение(для красоты)
 const btnAppStore = document.querySelector('.app-store');
 const btnGooglePlay= document.querySelector('.google-play');
@@ -180,9 +276,6 @@ const btnGooglePlay= document.querySelector('.google-play');
 btnAppStore?.addEventListener("click" , () => {
     alert("Sorry .The application is currently unavailable")
  });
-
- btnGooglePlay?.addEventListener("click" , () => {
+btnGooglePlay?.addEventListener("click" , () => {
     alert("Sorry .The application is currently unavailable")
  });
-
-
