@@ -30,50 +30,12 @@ body {
   flex-wrap: wrap;
 }
 
-
-.gallows{
-  position: relative;
+.gallows__block{
   padding: 25px;
 }
 
-.people{
-  position: absolute;
-  top: 171px;
-  left: 278px;
-}
-
-.people_head{
-  opacity: 1;
-}
-
-.people_body{
-  opacity: 1;
-  top: 268px;
-  left: 325px;
-}
-
-.people_hand-one{
-  opacity: 1;
-  top: 270px;
-  left: 260px;
-}
-
-.people_hand-two{
-  opacity: 1;
-  top: 268px;
-  left: 325px;
-}
-
-.people_leg-one{
-  opacity: 1;
-  top: 395px;
-  left: 262px;
-}
-
-.people_leg-two{
-  opacity: 1;
-  top: 395px;
-  left: 325px;
+.gallows{
+  width: 35svh;
 }
 
 .keyboard__text{
@@ -107,4 +69,17 @@ body {
   height: 40px;
   border: 1px solid #ccc;
   cursor: pointer;
+}
+
+@media (max-width: 915px) {
+  .gallows{
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .key {
+    width: 30px;
+    height: 30px;
+  }
 }
