@@ -70,22 +70,38 @@ function generateBtn() {
 
 generateBtn()
     const keyboard = document.getElementById('keyboard');
-    const inputText = document.getElementById('input_text');
+    const worldText = document.getElementById('world__text');
 
-  keyboard.addEventListener('click', clickKey);
-  document.addEventListener('keydown', pressKey);
+    keyboard.addEventListener('click', clickKey);
+    document.addEventListener('keydown', pressKey);
 
-  function clickKey(event) {
+function clickKey(event) {
     const key = event.target.innerText;
     if (key) {
-        inputText.value += key;
+        worldText.innerHTML += key;
+    }
+}
+
+function pressKey(event) {
+    const key = event.key.toUpperCase();
+    if (/^[А-Я]$/.test(key)) {
+        worldText.innerHTML += key;
     }
   }
 
-  function pressKey(event) {
-    const key = event.key.toUpperCase();
-    if (/^[А-Я]$/.test(key)) {
-        inputText.value += key;
-    }
-  }
+let currentWordIndex = Math.floor(Math.random() * wordsAndQuest.length);
+let currentWord = wordsAndQuest[currentWordIndex].word.toUpperCase();
+let currentQuest = wordsAndQuest[currentWordIndex].Quest;
+
+
+worldText.innerHTML = `Слово: ${hideWord(currentWord)}`;
+document.getElementById('quest__text').textContent = `Вопрос: ${currentQuest}`;
+
+function hideWord(word) {
+    return word.replace(/./g, '_');
+}
+
+
+
+
 

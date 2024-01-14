@@ -58,6 +58,7 @@ body {
 .keyboard {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
+  margin: auto;
 }
 
 .key {
