@@ -1,6 +1,41 @@
 
   const body = document.getElementById('body');
- 
+
+  const wordsAndQuest = [
+    {
+        word: "Пенициллин",
+        Quest: "Что было создано благодаря грибам-плесени?",
+    },
+    {
+        word: "Олимпиада",
+        Quest: "Как звали маму Македонского?",
+    },
+    {
+        word: "Салага",
+        Quest: "Новобранец на флоте – это …",
+    },
+    {
+        word: "Танго",
+        Quest: "Какой танец считается самым страстным?",
+    },
+    {
+        word: "Минск",
+        Quest: "Назовите город-столицу Республики Беларусь",
+    },
+    {
+        word: "Клепсидра",
+        Quest: "Каким словом называли в древние времена водяные часы?",
+    },
+    {
+        word: "Прополис",
+        Quest: "Как называется пчелиный клей?",
+    },
+    {
+        word: "Мука",
+        Quest: "Какой основной ингредиент нужен для создания пирожков?",
+    },
+]
+
 
   body.innerHTML = `
     <header class="header">
@@ -12,9 +47,8 @@
         </div>
         <div class="keyboard__text">
             <div class="input__span">
-                <input type="text" id="input_text" maxlength="10">
-                <p id="world__text"></p>
-                <Span>Вопрос:</Span>
+                <p id="world__text">Слово:</p>
+                <Span id='quest__text'>Вопрос:</Span>
                 <p>Неверные буквы 0/6</p>
             </div>
             <div class="keyboard" id="keyboard">
