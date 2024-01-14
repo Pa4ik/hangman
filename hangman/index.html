@@ -11,50 +11,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="keyboard__text">
-        <div>
-            <input type="text" id="input_text" maxlength="10">
-            <Span>Вопрос:</Span>
+    <header class="header">
+        <h1 class="h1">Hangman</h1>
+    </header>
+    <main>
+        <div class="keyboard__text">
+            <div class="input__span">
+                <input type="text" id="input_text" maxlength="10">
+                <Span>Вопрос:</Span>
+            </div>
+            <div class="keyboard" id="keyboard">
+                <!-- Row 1 -->
+                <div class="key">Й</div>
+                <div class="key">Ц</div>
+                <div class="key">У</div>
+                <div class="key">К</div>
+                <div class="key">Е</div>
+                <div class="key">Н</div>
+                <div class="key">Г</div>
+                <div class="key">Ш</div>
+                <div class="key">Щ</div>
+                <div class="key">З</div>
+                <div class="key">Х</div>
+                <div class="key">Ъ</div>
+                <!-- Row 2 -->
+                <div class="key">Ф</div>
+                <div class="key">Ы</div>
+                <div class="key">В</div>
+                <div class="key">А</div>
+                <div class="key">П</div>
+                <div class="key">Р</div>
+                <div class="key">О</div>
+                <div class="key">Л</div>
+                <div class="key">Д</div>
+                <div class="key">Ж</div>
+                <div class="key">Э</div>
+                <!-- Row 3 -->
+                <div class="key">Я</div>
+                <div class="key">Ч</div>
+                <div class="key">С</div>
+                <div class="key">М</div>
+                <div class="key">И</div>
+                <div class="key">Т</div>
+                <div class="key">Ь</div>
+                <div class="key">Б</div>
+                <div class="key">Ю</div>
+                <div class="key">Ё</div>
+            </div>
         </div>
-        <div class="keyboard" id="keyboard">
-            <!-- Row 1 -->
-            <div class="key">Й</div>
-            <div class="key">Ц</div>
-            <div class="key">У</div>
-            <div class="key">К</div>
-            <div class="key">Е</div>
-            <div class="key">Н</div>
-            <div class="key">Г</div>
-            <div class="key">Ш</div>
-            <div class="key">Щ</div>
-            <div class="key">З</div>
-            <div class="key">Х</div>
-            <div class="key">Ъ</div>
-            <!-- Row 2 -->
-            <div class="key">Ф</div>
-            <div class="key">Ы</div>
-            <div class="key">В</div>
-            <div class="key">А</div>
-            <div class="key">П</div>
-            <div class="key">Р</div>
-            <div class="key">О</div>
-            <div class="key">Л</div>
-            <div class="key">Д</div>
-            <div class="key">Ж</div>
-            <div class="key">Э</div>
-            <!-- Row 3 -->
-            <div class="key">Я</div>
-            <div class="key">Ч</div>
-            <div class="key">С</div>
-            <div class="key">М</div>
-            <div class="key">И</div>
-            <div class="key">Т</div>
-            <div class="key">Ь</div>
-            <div class="key">Б</div>
-            <div class="key">Ю</div>
-            <div class="key">Ё</div>
-        </div>
-    </div>
+    </main>
     <script src="src/js/index.js"></script>
 </body>
 </html>

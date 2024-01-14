@@ -15,20 +15,36 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+
+
+.keyboard__text{
+  display: grid;
+  gap: 50px;
 }
 
 #input_text{
-  font-family: 'Poppins', sans-serif;
   cursor:auto;
+}
+
+.input__span{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
 }
 
 .keyboard {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  gap: 5px;
 }
 
 .key {
+  background-color: azure;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,5 +52,4 @@ body {
   height: 40px;
   border: 1px solid #ccc;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
 }
