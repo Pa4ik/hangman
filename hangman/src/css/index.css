@@ -25,11 +25,61 @@ body {
 
 .main{
   display: flex;
+  gap:50px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+
+.gallows{
+  position: relative;
+  padding: 25px;
+}
+
+.people{
+  position: absolute;
+  top: 171px;
+  left: 278px;
+}
+
+.people_head{
+  opacity: 1;
+}
+
+.people_body{
+  opacity: 1;
+  top: 268px;
+  left: 325px;
+}
+
+.people_hand-one{
+  opacity: 1;
+  top: 270px;
+  left: 260px;
+}
+
+.people_hand-two{
+  opacity: 1;
+  top: 268px;
+  left: 325px;
+}
+
+.people_leg-one{
+  opacity: 1;
+  top: 395px;
+  left: 262px;
+}
+
+.people_leg-two{
+  opacity: 1;
+  top: 395px;
+  left: 325px;
 }
 
 .keyboard__text{
   display: grid;
   gap: 50px;
+  align-content: center;
 }
 
 #input_text{
