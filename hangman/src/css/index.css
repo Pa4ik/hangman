@@ -83,3 +83,12 @@ body {
     height: 30px;
   }
 }
+
+@media (max-height: 760px) {
+  .gallows{
+    width: 30%;
+  }
+  .keyboard__text {
+    gap: 0px;
+}
+}

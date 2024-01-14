@@ -8,7 +8,7 @@
     </header>
     <main class="main">
         <div class="gallows__block">
-        <img class="gallows" src="./src/gallows-img/gallows-6.png">
+        <img class="gallows" src="./src/gallows-img/gallows-0.png">
         </div>
         <div class="keyboard__text">
             <div class="input__span">
