@@ -1,0 +1,95 @@
+/* font-family: 'Poppins', sans-serif; */
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.header{
+  display: flex;
+  justify-content: flex-start;
+  padding: 25px;
+}
+
+.main{
+  display: flex;
+  gap:50px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.gallows__block{
+  padding: 25px;
+}
+
+.gallows{
+  width: 35svh;
+}
+
+.keyboard__text{
+  display: grid;
+  gap: 50px;
+  align-content: center;
+}
+
+#input_text{
+  cursor:auto;
+}
+
+.input__span{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  margin: auto;
+}
+
+.key {
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+@media (max-width: 915px) {
+  .gallows{
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .key {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-height: 760px) {
+  .gallows{
+    width: 30%;
+  }
+  .keyboard__text {
+    gap: 0px;
+}
+}
