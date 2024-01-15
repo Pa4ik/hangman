@@ -1,6 +1,8 @@
 
   const body = document.getElementById('body');
 
+
+
   const wordsAndQuest = [
     {
         word: "Пенициллин",
@@ -54,7 +56,17 @@
             <div class="keyboard" id="keyboard">
             </div>
         </div>
-    </main>`
+        <div class="modal-menu">
+            <div id="modals" class="modal-menu-info">
+               <div class="modal-menu-window">
+                    <h3 id="win__loss">Ты проиграл</h3>
+                    <span id="word">Слово:</span>
+                    <button id=""reset>Reset</button>   
+               </div>
+            </div>
+        </div> 
+    </main>
+   `
 
 
 function generateBtn() {
@@ -128,15 +140,14 @@ generateBtn()
         }
         worldText.innerHTML = `Слово: ${displayText}`;
     }
-
-
+   const modal = document.getElementById("modals")
+   console.log(modal)
 
     function updateImgAndIncorrect () {
         incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
         document.querySelector('.gallows').src = "./src/gallows-img/gallows-" + incorrectLetter + ".png";
         if ( incorrectLetter === maxIncorrectLetter ){
-            // incorrect.innerHTML =`Неверные буквы 6/6`
-            // document.querySelector('.gallows').src = "./src/gallows-img/gallows-6.png";
+            modal.classList.add("menu-active");
         }
     }
 
