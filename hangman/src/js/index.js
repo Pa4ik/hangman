@@ -61,6 +61,7 @@ function generateBtn() {
     let buttonsHTML = 'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁ'.split('').map(letter =>
           `<button
               class='key'
+              data-key='${letter}'
             >
               ` + letter + `
             </button>
@@ -69,6 +70,8 @@ function generateBtn() {
       }
 
 generateBtn()
+
+
     const keyboard = document.getElementById('keyboard');
     const worldText = document.getElementById('world__text');
     const incorrect = document.getElementById('incorrect');
@@ -85,16 +88,24 @@ generateBtn()
         const key = event.target.innerText;
         if (key) {
             checkLetter(key);
+            event.target.disabled = true;
         }
     }
-    
+   
+  
     function pressKey(event) {
         const key = event.key.toUpperCase();
         if (/^[А-Я]$/.test(key)) {
-            checkLetter(key);
+            const button = document.querySelector(`.key[data-key='${key}']`);
+            if (button) {
+               checkLetter(key);
+               button.disabled = true;
+            }
         }
     }
-    
+
+ 
+
     function checkLetter(letter) {
         if (!guessedLetters.includes(letter)) {
             guessedLetters.push(letter);
@@ -119,11 +130,13 @@ generateBtn()
     }
 
 
+
     function updateImgAndIncorrect () {
         incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
         document.querySelector('.gallows').src = "./src/gallows-img/gallows-" + incorrectLetter + ".png";
         if ( incorrectLetter === maxIncorrectLetter ){
-            alert("gg")
+            // incorrect.innerHTML =`Неверные буквы 6/6`
+            // document.querySelector('.gallows').src = "./src/gallows-img/gallows-6.png";
         }
     }
 
