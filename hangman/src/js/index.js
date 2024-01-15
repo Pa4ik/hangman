@@ -43,13 +43,13 @@
     </header>
     <main class="main">
         <div class="gallows__block">
-        <img class="gallows" src="./src/gallows-img/gallows-0.png">
+            <img class="gallows" src="./src/gallows-img/gallows-0.png">
         </div>
         <div class="keyboard__text">
             <div class="input__span">
                 <p id="world__text">Слово:</p>
                 <Span id='quest__text'>Вопрос:</Span>
-                <p>Неверные буквы 0/6</p>
+                <p id="incorrect">Неверные буквы 0/6</p>
             </div>
             <div class="keyboard" id="keyboard">
             </div>
@@ -71,11 +71,15 @@ function generateBtn() {
 generateBtn()
     const keyboard = document.getElementById('keyboard');
     const worldText = document.getElementById('world__text');
+    const incorrect = document.getElementById('incorrect');
+    const gallows = document.querySelector('.gallows__block');
 
     keyboard.addEventListener('click', clickKey);
     document.addEventListener('keydown', pressKey);
 
     let guessedLetters = [];
+    let incorrectLetter = 0;
+    
 
     function clickKey(event) {
         const key = event.target.innerText;
@@ -94,10 +98,15 @@ generateBtn()
     function checkLetter(letter) {
         if (!guessedLetters.includes(letter)) {
             guessedLetters.push(letter);
+            if (!currentWord.includes(letter)) {
+                incorrectLetter++;
+                incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
+                gallows.innerHTML =` <img class="gallows" src="./src/gallows-img/gallows-${incorrectLetter}.png">`
+            }
             updateWord();
+        } 
         }
-    }
-    
+
     function updateWord() {
         let displayText = '';
         for (const char of currentWord) {
