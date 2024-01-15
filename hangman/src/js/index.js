@@ -59,7 +59,7 @@ const body = document.getElementById('body');
                <div class="modal-menu-window">
                     <h3 id="win__loss"></h3>
                     <span id="word">Слово:</span>
-                    <button id="reset">Reset</button>   
+                    <button id="reset">Играть еще раз</button>   
                </div>
             </div>
         </div> 
