@@ -75,19 +75,40 @@ generateBtn()
     keyboard.addEventListener('click', clickKey);
     document.addEventListener('keydown', pressKey);
 
-function clickKey(event) {
-    const key = event.target.innerText;
-    if (key) {
-        worldText.innerHTML += key;
-    }
-}
+    let guessedLetters = [];
 
-function pressKey(event) {
-    const key = event.key.toUpperCase();
-    if (/^[А-Я]$/.test(key)) {
-        worldText.innerHTML += key;
+    function clickKey(event) {
+        const key = event.target.innerText;
+        if (key) {
+            checkLetter(key);
+        }
     }
-  }
+    
+    function pressKey(event) {
+        const key = event.key.toUpperCase();
+        if (/^[А-Я]$/.test(key)) {
+            checkLetter(key);
+        }
+    }
+    
+    function checkLetter(letter) {
+        if (!guessedLetters.includes(letter)) {
+            guessedLetters.push(letter);
+            updateWord();
+        }
+    }
+    
+    function updateWord() {
+        let displayText = '';
+        for (const char of currentWord) {
+            if (guessedLetters.includes(char)) {
+                displayText += char;
+            } else {
+                displayText += '_';
+            }
+        }
+        worldText.innerHTML = `Слово: ${displayText}`;
+    }
 
 let currentWordIndex = Math.floor(Math.random() * wordsAndQuest.length);
 let currentWord = wordsAndQuest[currentWordIndex].word.toUpperCase();
