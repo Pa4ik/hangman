@@ -72,13 +72,13 @@ generateBtn()
     const keyboard = document.getElementById('keyboard');
     const worldText = document.getElementById('world__text');
     const incorrect = document.getElementById('incorrect');
-    const gallows = document.querySelector('.gallows__block');
 
     keyboard.addEventListener('click', clickKey);
     document.addEventListener('keydown', pressKey);
 
     let guessedLetters = [];
     let incorrectLetter = 0;
+    const maxIncorrectLetter = 6;
     
 
     function clickKey(event) {
@@ -100,8 +100,7 @@ generateBtn()
             guessedLetters.push(letter);
             if (!currentWord.includes(letter)) {
                 incorrectLetter++;
-                incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
-                gallows.innerHTML =` <img class="gallows" src="./src/gallows-img/gallows-${incorrectLetter}.png">`
+                updateImgAndIncorrect ()
             }
             updateWord();
         } 
@@ -117,6 +116,15 @@ generateBtn()
             }
         }
         worldText.innerHTML = `Слово: ${displayText}`;
+    }
+
+
+    function updateImgAndIncorrect () {
+        incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
+        document.querySelector('.gallows').src = "./src/gallows-img/gallows-" + incorrectLetter + ".png";
+        if ( incorrectLetter === maxIncorrectLetter ){
+            alert("gg")
+        }
     }
 
 let currentWordIndex = Math.floor(Math.random() * wordsAndQuest.length);
