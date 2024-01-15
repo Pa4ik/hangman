@@ -1,6 +1,4 @@
-
-  const body = document.getElementById('body');
-
+const body = document.getElementById('body');
 
 
   const wordsAndQuest = [
@@ -59,9 +57,9 @@
         <div class="modal-menu">
             <div id="modals" class="modal-menu-info">
                <div class="modal-menu-window">
-                    <h3 id="win__loss">Ты проиграл</h3>
+                    <h3 id="win__loss"></h3>
                     <span id="word">Слово:</span>
-                    <button id=""reset>Reset</button>   
+                    <button id="reset">Reset</button>   
                </div>
             </div>
         </div> 
@@ -69,6 +67,11 @@
    `
 
 
+   const lossWin = document.getElementById("win__loss");
+   const wordGame = document.getElementById("word")
+   const btnReset = document.getElementById("reset")
+
+  
 function generateBtn() {
     let buttonsHTML = 'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁ'.split('').map(letter =>
           `<button
@@ -80,7 +83,6 @@ function generateBtn() {
           `).join('');
         document.getElementById('keyboard').innerHTML = buttonsHTML;
       }
-
 generateBtn()
 
 
@@ -88,8 +90,10 @@ generateBtn()
     const worldText = document.getElementById('world__text');
     const incorrect = document.getElementById('incorrect');
 
+
     keyboard.addEventListener('click', clickKey);
     document.addEventListener('keydown', pressKey);
+
 
     let guessedLetters = [];
     let incorrectLetter = 0;
@@ -117,7 +121,6 @@ generateBtn()
     }
 
  
-
     function checkLetter(letter) {
         if (!guessedLetters.includes(letter)) {
             guessedLetters.push(letter);
@@ -129,6 +132,7 @@ generateBtn()
         } 
         }
 
+
     function updateWord() {
         let displayText = '';
         for (const char of currentWord) {
@@ -139,31 +143,66 @@ generateBtn()
             }
         }
         worldText.innerHTML = `Слово: ${displayText}`;
+        if (!displayText.includes('_')) {
+            modal.classList.add("menu-active");
+            lossWin.innerHTML = `Ты выиграл!`;
+            wordGame.innerHTML = `Слово: ${currentWord}`;
+        }
     }
+
+
    const modal = document.getElementById("modals")
-   console.log(modal)
+
 
     function updateImgAndIncorrect () {
         incorrect.innerHTML =`Неверные буквы ${incorrectLetter}/6`
         document.querySelector('.gallows').src = "./src/gallows-img/gallows-" + incorrectLetter + ".png";
         if ( incorrectLetter === maxIncorrectLetter ){
             modal.classList.add("menu-active");
-        }
+            lossWin.innerHTML = `Ты проиграл`
+            wordGame.innerHTML = `Слово: ${currentWord}`
+        } 
     }
+
+
+    btnReset.addEventListener('click', resetGame);
+
+       function resetGame() {
+           guessedLetters = [];
+           incorrectLetter = 0;
+           updateImgAndIncorrect();
+    
+           currentWordIndex = Math.floor(Math.random() * wordsAndQuest.length);
+           currentWord = wordsAndQuest[currentWordIndex].word.toUpperCase();
+           currentQuest = wordsAndQuest[currentWordIndex].Quest;
+
+           console.log(currentWord)
+
+           worldText.innerHTML = `Слово: ${hideWord(currentWord)}`;
+           document.getElementById('quest__text').textContent = `Вопрос: ${currentQuest}`;
+
+        
+           const keyBtn = document.querySelectorAll('.key');
+           keyBtn.forEach(button => {
+               button.disabled = false;
+           });
+
+           modal.classList.remove("menu-active");
+           lossWin.innerHTML = '';
+           wordGame.innerHTML = '';
+       }
+
 
 let currentWordIndex = Math.floor(Math.random() * wordsAndQuest.length);
 let currentWord = wordsAndQuest[currentWordIndex].word.toUpperCase();
 let currentQuest = wordsAndQuest[currentWordIndex].Quest;
+console.log(currentWord)
 
 
 worldText.innerHTML = `Слово: ${hideWord(currentWord)}`;
 document.getElementById('quest__text').textContent = `Вопрос: ${currentQuest}`;
 
+
 function hideWord(word) {
     return word.replace(/./g, '_');
 }
-
-
-
-
-
